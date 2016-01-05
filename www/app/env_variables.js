@@ -3,8 +3,8 @@
  */
 var envVariables={
     dbName:'newsletterDB',
-    url:'http://tools-stg1.wiredmessenger.com/WmNewsletterSignupApp/api/',
-    login:'http://tools-stg1.wiredmessenger.com/WmNewsletterSignupApp/token',
+    url:'http://wiredr.com/WmNewsletterSignupApp/api/',
+    login:'http://wiredm.com/WmNewsletterSignupApp/token',
     checkEmail:'Member/CheckEmailAddressAvailability?emailaddress=',
     checkUsername:'Member/CheckUserNameAvailability?username=',
     getCategory:'Newsletter/GetCategoryList?searchPhrase&status=1&lowerBound=1&upperBound=100&pageSize=100&sortBy=OrderAsc&pageNum=',
