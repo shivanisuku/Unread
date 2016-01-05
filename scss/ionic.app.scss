@@ -1,0 +1,1217 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,700);
+
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+/*ADDED BY SHIVANI*/
+
+/*GLOBAL SASS VARIABLES
+----------------------------------------------------------------*/
+$assertive:                      #3B8AA2 !default;
+
+$positive:                        #4DB739 !default;
+
+$assertive-opacity: rgba(48, 68, 69, 0.6);
+
+
+$red: red!default;
+
+$green: green!default;
+
+$global-font: "Roboto", "Helvetica Neue", "Arial", "Segoe UI", sans-serif;
+
+
+$save-green:#4CB050;
+
+$delete-red:#F54337;
+
+
+
+label.item.has-error { border-bottom: 2px solid $red; }
+
+/** Styling for the password field when an error exists**/
+label.item.has-error-lr { border-left: 2px solid $red; border-right: 2px solid $red; }
+
+/** Styling for the password field when an error has been resolved**/
+label.item.valid-lr { border-left: 2px solid $green; border-right: 2px solid $green; }
+
+/** Styling for the error text and container **/
+.form-errors { margin: 5px 0; }
+.form-error { padding: 2px 0 2px 16px; color: $red; font-size:0.9em; }
+
+
+.progressLineardemoBasicUsage md-progress-linear {
+    padding-top: 10px;
+    margin-bottom: 20px; }
+
+/*INBOX SLIDE CSSS*/
+.box { text-align: center; padding-bottom: 100px; padding-top: 25px; height: 150px !important; }
+
+.green { background-color: $green; }
+
+
+.white { background-color: #D0D0D0; }
+
+.orange { background-color: #E8AC3C; }
+
+.subSelected { display: block; background: rgba(0, 0, 0, .6); }
+
+.large-icon { font-size: larger; }
+.custom-icon { font-size: 44px; color: white; display:block; }
+
+
+
+/* SHIVANI ENDS */
+
+
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+ /*START GLOBAL OVERIDES OF IONIC SCSS
+----------------------------------------------------------------*/
+
+ body, input, button, select, textarea{font-family:$global-font;}
+   
+ 
+ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: $global-font;}
+ 
+a{color:$positive;}
+ 
+a:hover, a:active{/*color:$positive;*/ }
+ 
+ .ion-chevron-left.button-clear, .ion-chevron-right.button-clear{font-size:1.4em; padding-right:20px; color:white; z-index:99;}
+ 
+.ion-chevron-left.button-clear.solidtype, .ion-chevron-right.button-clear.solidtype{color:$assertive}
+ 
+ 
+/*top bar overides*/
+
+/*ion-header-bar.bar-header{height:56px; padding-left:11px; box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14);}
+
+.bar .title{text-align:left; height:56px; line-height:52px; font-size:20px; padding-left:10px;}
+
+.has-header{top:56px;}*/
+
+.main-nav-icon{font-size: 24px; vertical-align: text-bottom; width:28px; display:inline-block; color:$assertive;}
+
+/*GENERAL SLIDE CSSS
+----------------------------------------------------------------*/
+
+
+.slider { /*height: 120px;*/  width: 100%; }
+.slider-slide { color: #000; background-color: #fff; height: 100%; }
+
+
+
+
+/*HOME SLIDE CSSS
+----------------------------------------------------------------*/
+
+
+.homebox { text-align: center; padding-bottom: 100px; padding-top: 25px; min-height: 320px;  }
+.homeslide { background-size: cover; background-position: center; height: 100%; position: relative; background-position: top;  background-repeat:no-repeat;  }
+
+.home-login-title { position: absolute; bottom: 45%; width: 100%; padding:18px; padding-top:1em; padding-bottom:1em;  text-align: center; color: white; font-family:  $global-font;  font-weight: 300; }
+
+
+
+.home-login-button { position: absolute; bottom: 15%; bottom:65px; bottom:35%; width: 100%; text-align: center; font-family: $global-font; font-weight: 300;  }
+
+
+.home-login-button > a.button-block{    border:3px solid white; 
+    background-color: transparent;
+    color: #fff;
+    border-width: 3px;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 23px; max-width:260px; }
+
+
+
+.slider-pager { color: #ffffff !important; bottom:15px; }
+
+.slider-pager .slider-pager-page{color:#fff;}
+
+.splashdemo{background-size: contain; background-color:$assertive;}
+
+
+.demo-item2{background-color:$assertive;}
+
+/*general all slider scale to height*/
+
+.splash-slide .slider,
+.splash-slide .scroll,
+.splash-slide .box {
+    height: 100%;
+  
+}
+
+
+/*iphone 6+*/
+
+@media only screen and (width: 414px) {
+    
+    .splash-slide .slider{min-height:736px;}
+    
+}
+
+@media only screen and (width: 736px) {
+
+    .splash-slide .slider{height:414px;}
+       .splash-slide .home-login-title{top:0; bottom:auto;}
+         .home-login-button{bottom:15%;}
+ 
+    
+}
+
+/*iphone 6*/
+
+@media only screen and (width: 375px) {
+    
+    .splash-slide .slider{min-height:627px;}
+}
+
+@media only screen and (width: 667px) {
+
+    .splash-slide .slider{height:375px;}
+        .splash-slide .home-login-title{top:0; bottom:auto;}
+   
+      .home-login-button{bottom:15%;}
+}
+
+
+
+/*iphone 5 + 4*/
+
+@media only screen and (width: 320px) {
+    
+    .splash-slide .slider{height:568px;}
+}
+
+@media only screen and (width: 480px) {
+     .home-login-button{bottom:15%;}
+  
+}
+
+
+@media only screen and (width: 568px) {
+
+    .splash-slide .slider{height:320px;}
+    .splash-slide .home-login-title{top:0; bottom:auto;}
+     .home-login-button{bottom:15%;}
+  
+}
+
+
+/*galaxy s3-s6*/
+
+@media only screen and (width: 360px) {
+    
+    .splash-slide .slider{height:640px;}
+}
+
+@media only screen and (width: 640px) {
+
+    .splash-slide .slider{height:360px;}
+       .splash-slide .home-login-title{top:0; bottom:auto;}
+   .home-login-button{bottom:15%;}
+    
+}
+
+/*ipad all*/
+
+@media only screen and (width: 768px) {
+    
+    .splash-slide .slider{height:1024px;}
+}
+
+@media only screen and (width: 1024px) {
+
+    .splash-slide .slider{}
+    
+    
+}
+
+
+
+
+/*about scroll adjustments offet*/
+
+.inner-scroll-content{top:0;}
+
+
+ .platform-ios .inner-scroll-content, .platform-ipad .inner-scroll-content{top:0;}
+
+.inner-scroll-slide{padding-top:44px;}
+
+
+
+
+
+
+/* LOGIN REG STYLE OVERIDES
+----------------------------------------------------------------*/
+.splash-welcome-wrapper{  background: url('../img/home_slider/slide-blur.jpg') no-repeat transparent;   background-position: top;  }
+
+
+.splash-welcome-wrapper .item-stacked-label input, .splash-welcome-wrapper .item-stacked-label textarea, .splash-welcome-wrapper .item, .splash-welcome-wrapper .item-select select{background-color: transparent; border-color: transparent; color:white; }
+
+ .item-select select{ padding:14px 43px 12px 16px; }
+
+
+
+.splash-welcome-wrapper .item-stacked-label, .splash-welcome-wrapper label.item.item-input{border-bottom:1px solid #eee;}
+
+
+.splash-welcome-wrapper .item-stacked-label .input-label, .splash-welcome-wrapper .item-stacked-label .icon, .splash-welcome-wrapper .input-label, .splash-welcome-wrapper .item-input input, .splash-welcome-wrapper .item-input textarea{color:white;}
+
+
+.splash-welcome-wrapper .splash-form{width:85%; margin:0 auto; background-color: $assertive-opacity;  border-radius: 5px 5px 5px 5px;     padding:10px;}
+
+
+.splash-welcome-wrapper .item-select option{color:black;}
+
+.splash-welcome-wrapper .item-select:after{color:white;}
+
+
+.splash-welcome-wrapper .form-error{padding-top:8px;}
+
+.splash-welcome-wrapper{color:white;}
+
+.splash-welcome-wrapper a{color:white; padding:10px 0px;}
+
+ .form-splash-heading{ color:white; font-size:16px;     width: 85%;
+    margin:5px auto;}
+
+
+.splash-hero{padding:20px;}
+
+.splash-hero-title { position: static;  width: 100%; padding:18px; padding-top:0px; padding-bottom:0px;  text-align: center; color: white; font-family:  $global-font; font-size:28px; letter-spacing: -0.05em;  font-weight: 300; margin-top:30px; margin-bottom:30px; /*transform:scale(1.2);*/ }
+
+h2.splash-hero-title{margin-top:30px;}
+
+
+.splash-bar{}
+
+
+@media only screen and (min-width: 736px) {
+    
+   .splash-bar{}
+}
+
+
+.splash-icon-main{font-size: 57px; margin: 0; padding: 0; line-height: 0; vertical-align: top;}
+
+.splash-icon-sub{font-size: 36px; margin: 0; padding: 0; line-height: 0; vertical-align: top;}
+
+
+
+
+.unread-splash-img{width:80px; width:115px; margin-left:16px; margin-left:0;  }
+
+.splash-hero-title .unread-splash-img{margin-bottom:0px; margin-left:15px; margin-left:0px; width:100px; width:140px;}
+
+
+
+.splash-skip-btn{float:right; margin-right:15px; background:none; border:0; background-color:transparent; padding-left:15px; padding-right:15px; color:white!important;}
+
+
+.unread-icon-box{  
+    display: block;
+    width: 120px;
+    font-size:22px;
+    letter-spacing: -0.05em;
+    padding-top:10px; padding-bottom:5px;
+    margin: 0 auto; transform: scale(1.4);}
+
+
+.unread-menu-img{height:30px; margin-top:5px; line-height: 12px;}
+
+.reg-para{width:85%; margin:0 auto; font-weight: 300;}
+
+
+.shift-wrapper{ position:static; display: block;}
+
+
+/*login/signup/setting password custom label box*/
+.password-special{border:0!important; padding:0!important; padding-left:5px!important;}
+
+
+
+/* SEARCH CUSTOM FIXED
+----------------------------------------------------------------*/
+
+.search-block{border-bottom:1px solid;}
+.search-block.bar.item-input-inset .item-input-wrapper{background:transparent;}
+
+
+.search-block .icon.ion-android-search{font-size:22px;}
+
+
+.search-block.bar.item-input-inset .item-input-wrapper .icon.ion-close{font-size:19px; padding:10px; z-index:99; cursor:pointer;}
+
+
+/*global magnify glass in header*/
+.bar .button.button-clear .icon.ion-ios-search:before, .bar .button.button-clear.icon.ion-ios-search:before, .bar .button.button-clear.icon-left.ion-ios-search:before, .bar .button.button-clear.icon-right.ion-ios-search:before{font-size:22px;}
+
+.bar-footer > .row > .col{padding-top:2px;}
+
+
+
+/* SUBSCRIPTION
+----------------------------------------------------------------*/
+
+.categoryWrapper{margin-top:0px; height:100%;}
+
+.category-box{ background:white; /*margin-bottom:1px;*/  }
+
+.category-name { background: $positive;  padding: 0px; width: 100%; height:100%; color: white; position:relative;  }
+
+
+
+
+.category-name > .col{margin:0; padding:0;}
+
+.category-name > .col > a{padding: 12px; display:flex;  } 
+
+.category-name > .col > a.activated{}
+
+.cat-item-box{  display: table-cell;vertical-align: top;}
+
+@media only screen and (max-width: 320px) {
+
+    .col.col-25.cat-item-box{ padding-left:2px; padding-right:2px; }
+}
+
+
+
+.cat-logo-block { border: 1px solid #DDDDDD; height: 75px; overflow: hidden; display: table; vertical-align: middle; margin: 0 auto; text-align: center; }
+
+@media only screen and (min-width: 414px) {
+
+    .cat-logo-block { height: 85px; }
+}
+
+.logo-background-state-active { border: 1px solid $positive; }
+
+.cat-logo-cutoff { margin: 0 auto; width: 100%; display: table-cell; vertical-align: middle; height: auto; position: relative; min-width: 5.1em; }
+
+
+@media only screen and (min-width: 414px) {
+
+    .cat-logo-cutoff { min-width: 80px; }
+}
+
+.cat-logo-block img { display: flex; position: relative; float: none; text-align: center; margin: 0 auto; width: auto; padding: 5px; max-height: 80px; max-width: 80px; text-align: center; margin: 0 auto; opacity: 1; }
+
+
+.cat-logo-block.logo-background-state-active img { opacity: 1; }
+
+
+@media only screen and (max-width: 414px) {
+
+    .cat-logo-block img { width: 100%; }
+}
+
+.cat-logo-block i { position: absolute; right: 0; bottom: 0; background-color: white; padding: 4px; padding-bottom: 0; padding-top: 1px; padding-left: 4px; color: #DDDDDD; font-size: 16px; }
+
+
+.cat-logo-block.logo-background-state-active i { color: $assertive; }
+
+.cat-logo-block .cat-logo-overlay { display: none; }
+
+.cat-logo-block.logo-background-state-active .cat-logo-overlay { display: block; width: 100%; height: 100%; position: absolute; top: 0; background-color: $positive; z-index: 99; opacity: 0.1; }
+
+.custom-icon-category { font-size: 42px; color: white; display: flex; min-width: 44px; margin-left: 10px; }
+
+.categoryNameText {     vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+    padding: 8px;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom:10px;
+    color: white;
+    font-weight: 300; line-height: 35px; padding-left:10px; }
+
+.category-contents { max-width:400px; margin:0 auto; margin-top:1em; margin-bottom:1em;  }
+
+
+.category-contents.ng-hide { }
+
+.item-avatar { padding-left: 50px !important; }
+
+
+.view-more-btn-custom{padding-left:4em; padding-right:4em; font-size:1em;     white-space: nowrap;}
+
+
+/*background cat row custom*/
+
+.category-container .scroll{ height:100%;  }
+
+
+.subscription-icon-block{        width: 60px; height:60px;
+    display: flex;
+    position: relative;
+    float: none; }
+
+.subscription-icon-img{    width: 100%;
+    float: left;
+    display: block;
+    position: absolute;}
+
+
+
+/*background cat images*/
+
+#category-0 .category-name{background-image: url(../img/newsletter/category-Everything.jpg); background-size:cover;}
+
+#category-0 .subscription-icon-img{}
+
+
+#category-3 .category-name{background-image: url(../img/newsletter/category-Fashion.jpg); background-size:cover;}
+
+#category-4 .category-name{background-image: url(../img/newsletter/category-Food.jpg); background-size:cover;}
+
+#category-6 .category-name{background-image: url(../img/newsletter/category-Footwear.jpg); background-size:cover;}
+
+#category-7 .category-name{background-image: url(../img/newsletter/category-Health-Beauty.jpg); background-size:cover;}
+
+#category-12 .category-name{background-image: url(../img/newsletter/category-Entertainment.jpg); background-size:cover;}
+
+
+/*padding to determine size of category size height, default iphone6+*/
+
+.category-name > .col > a{padding:3% 12px;}
+
+/*iphone 6+*/
+
+@media only screen and (width: 414px) {
+  .category-name > .col > a{padding:6.8% 12px;}
+    
+}
+
+@media only screen and (width: 736px) {
+ .category-name > .col > a{    padding: 1px 12px;}
+ .subscription-icon-img{width:85%; padding-top:4px;}
+    
+}
+
+/*iphone 6*/
+
+@media only screen and (width: 375px) {
+     .category-name > .col > a{padding:5% 12px;}
+
+}
+
+@media only screen and (width: 667px) {
+ .category-name > .col > a{    padding: 0px 12px; padding-bottom:1px;}
+ .subscription-icon-img{width:85%; padding-top:4px;}
+ .subscription-icon-block{height:55px; width:55px;}
+
+}
+
+
+
+/*iphone 5 + 4*/
+
+@media only screen and (width: 320px) {
+       .category-name > .col > a{padding:4.4% 12px;}
+
+}
+
+@media only screen and (width: 480px) {
+
+   .category-name > .col > a{    padding: 0px 12px; padding-bottom:0px;}
+ .subscription-icon-img{width:85%; padding-top:4px;}
+ .subscription-icon-block{height:46px; width:46px;}
+ .categoryNameText{padding-bottom:0; font-size:21px;   line-height: 31px;}
+}
+
+
+@media only screen and (width: 568px) {
+
+ .category-name > .col > a{    padding: 0px 12px; padding-bottom:0px;}
+ .subscription-icon-img{width:85%; padding-top:4px;}
+ .subscription-icon-block{height:46px; width:46px;}
+ .categoryNameText{padding-bottom:0; font-size:21px;   line-height: 31px;}
+  
+}
+
+
+/*galaxy s3-s6*/
+
+@media only screen and (width: 360px) {
+       .category-name > .col > a{padding:5.5% 12px;}
+   
+}
+
+@media only screen and (width: 640px) {
+
+  .category-name > .col > a{    padding: 7px 12px; padding-bottom:0px;}
+ .subscription-icon-img{width:85%; padding-top:4px;}
+ .subscription-icon-block{height:46px; width:46px;}
+ .categoryNameText{padding-bottom:0; font-size:21px;   line-height: 20px;}
+    
+}
+
+
+/*384x598*/
+
+@media only screen and (width: 384px) {
+       .category-name > .col > a{padding:4.3% 12px;}
+   
+}
+
+@media only screen and (width: 598px) {
+
+  .category-name > .col > a{    padding: 11px 12px; padding-bottom:0px;}
+ .subscription-icon-img{width:85%; padding-top:0px;}
+ .subscription-icon-block{height:46px; width:46px;}
+ .categoryNameText{padding-bottom:0; font-size:21px;   line-height: 20px;}
+    
+}
+
+
+/*ipad all*/
+
+@media only screen and (width: 768px) {
+     .category-name > .col > a{padding:4.2% 12px;}
+     .subscription-icon-block{width:100px; height:100px;     margin-left: 15px;
+    margin-right: 5px;}
+     .categoryNameText{font-size:58px; line-height:76px; padding-left: 15px;}
+   
+}
+
+@media only screen and (width: 1024px) {
+
+
+    
+    
+}
+
+
+/*fixed footer offset for subscription-category*/
+.fixed-footer-offset{margin-bottom:45px!important;}
+
+.fixed-header-offset{margin-top:40px;}
+
+
+@media only screen and (min-width: 768px) {
+
+
+.category-contents.fixed-header-offset{margin-top:60px;}
+
+
+}
+
+
+
+/*custom class for select all btn*/
+
+.select-all-btn{background:red;}
+
+
+
+.bar-assertive .button.select-all-btn{background-color:$positive; border-color: #3d902d;}
+
+.btn-none{border:0;}
+
+
+/*CSS ANIMATION SLIDE
+----------------------------------------------------------------*/
+
+.ng-hide-add, .ng-hide-remove { /* ensure visibility during the transition */ display: block !important; /* yes, important */ }
+.cssSlideUp {  -o-transition: .2s ease all; -ms-transition: .2s ease all; -moz-transition: .2s ease all; -webkit-transition: .2s ease all; height:5em; overflow: hidden; }
+.cssSlideUp.ng-hide { height: 0; }
+
+.cssSlideUp.subscription-animation{height: 17em; }
+.cssSlideUp.subscription-animation.ng-hide { height: 0; }
+
+
+[ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; }
+ion-popover-view.fit { height: auto; }
+
+ion-popover-view.fit ion-content { position: relative; }
+
+.platform-android ion-popover-view.fit { margin-top: 10px; }
+
+.platform-ios ion-popover-view.fit { padding-top: 10px; padding-bottom: 10px; }
+
+
+/*animated load image
+----------------------------------------------------------------*/
+.animated-loader-img{ position: absolute; z-index: 98; height:4px; display: block!important;
+    margin-top: 0px;
+    width: 100%;}
+
+
+@media only screen and (min-width: 768px) {
+.animated-loader-img{width:100%; height:4px;}
+}
+
+
+
+
+/*ipad custom increased icons for subscriptions
+----------------------------------------------------------------*/
+
+
+@media only screen and (min-width: 768px) {
+
+    .category-contents{ min-width:600px;}
+
+     .category-contents .cat-logo-block { height: 125px; }
+
+    .category-contents .cat-logo-block img { width: 100%; max-height: 125px; max-width: 125px;}
+
+    .category-contents .cat-logo-cutoff { min-width: 125px;}
+
+     .cssSlideUp.subscription-animation{height:25em; }
+    
+    .category-contents .row{margin-bottom:5px;}
+    
+
+}
+
+
+
+/* INBOX
+----------------------------------------------------------------*/
+
+.inbox-wrapper{/*background:#f7f7f7;*/}
+
+.inbox-list{ margin-top:-1px; margin-right:-2px; min-height:92px; }
+
+.inbox-col-img{}
+
+.inbox-col-info{ height:80px; overflow:hidden; padding-top:17px;}
+
+.inbox-col-date{ font-size:0.73em; padding-top:30px;}
+
+.inbox-save-swipe{background:$save-green; height:91px;}
+
+.inbox-delete-swipe{ background:$delete-red; height:91px;}
+
+.inbox-inbox-swipe{ background:#999; height:91px;}
+
+
+.inbox-save-swipe > .col{  color: white; padding-right: 15px; font-size: 14px; }
+
+
+.inbox-save-swipe > .col > span{ text-align: center;    width:auto;    float: right; margin-top:3px;}
+
+.inbox-delete-swipe > .col{  color: white; padding-left: 15px;font-size: 14px;   }
+
+.inbox-delete-swipe > .col > span{ text-align: center;    width:auto;    float: left; margin-top:5px;}
+
+
+
+.inbox-inbox-swipe > .col{  color: white; padding-left: 15px;font-size: 14px; }
+
+.inbox-inbox-swipe > .col > span{text-align: center;    width:auto;    float: right; margin-top:3px;}
+
+
+
+.inbox-col-img .cat-logo-block{border:none; padding-left:8px; padding-right:10px;}
+
+
+.email-item{ padding:0; padding-left:0; padding-right:0; height:92px; overflow: hidden; display:block;}
+
+.email-item a{color:#666;}
+
+
+
+@media only screen and (min-width: 414px) {
+
+    .inbox-col-img .cat-logo-block { height: 75px; }
+}
+
+.default-inbox-img{max-width:200px; width:90%;}
+
+/*footer undo btn*/
+
+.footer-undo-btn{border:0; margin-top:-6px;}
+
+
+
+
+/* EMAIL DETAIL VIEW
+----------------------------------------------------------------*/
+
+.detail-col-img{}
+
+.detail-col-info{ height:auto;  padding-top:10px;}
+
+.detail-col-options{ font-size:0.9em; padding-top:0px;}
+
+.detail-col-img .cat-logo-block{border:none; padding-left:8px; padding-right:10px;}
+
+.item {font-family:  $global-font;}
+
+
+/*.item .detail-title-text{   
+    text-overflow: initial;
+  
+    white-space: normal;}*/
+
+.item .detail-subject-text{   
+    text-overflow: initial;
+   
+    white-space: normal;
+    
+     text-overflow:ellipsis;
+   
+    white-space: nowrap;
+  word-break: keep-all;
+  white-space: pre; /* CSS 2.0 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3.0 */
+  //white-space: -pre-wrap; /* Opera 4-6 */
+  //white-space: -o-pre-wrap; /* Opera 7 */
+  //white-space: -moz-pre-wrap; /* Mozilla */
+  //word-wrap: break-word; /* IE 5+ *
+}
+
+.item .detail-date-text{  
+    text-overflow: initial;
+  
+    white-space: normal; 
+    
+        text-overflow:ellipsis;
+   
+    white-space: nowrap;
+
+
+}
+
+.inbox-detail-list{margin-top:-1px; margin-right:-1px; margin-bottom: 0;}
+
+.inbox-detail-list > .item.row{ height:95px; border-left:0; margin:0; height:auto;}
+
+
+
+
+.button.view-detail-button{}
+
+
+
+.bar .button.button-icon.view-detail-button .icon:before, .bar .button.button-icon.view-detail-button:before, .bar .button.button-icon.icon-left.view-detail-button:before, .bar .button.button-icon.icon-right.view-detail-button:before{font-size:22px;}
+
+ 
+ 
+ 
+
+ .detail-bar-wrapper{height:100%!important; width:100%;}
+ 
+ 
+ .detail-button-division{float:right; display:inline-block;}
+ 
+ 
+ /*slide borders for email view*/
+ .detail-slide-first{}
+.detail-slide-second{border:1px solid #ddd; border-top:0; border-bottom:0; }
+.detail-slide-third{}
+ 
+
+/*feedback popup dialog*/
+
+.popup-feedback-textarea{padding:5px; border: 1px solid #b2b2b2;}
+
+.popup-head{background:$assertive;}
+
+.popup-title{color:white;}
+
+
+
+
+/* EMAIL TRANSFORM SCALING AND CSS OVERIDES FOR EMAIL
+----------------------------------------------------------------*/
+
+.iframe-block-wrapper{ height:auto; line-height: 0; position:relative; padding:0; margin:0; top:0; vertical-align: top; display:block; transform-origin: top;}
+
+.iframe-block-wrapper > div{}
+
+
+.item-body.wrap{   height:auto; line-height: 0; position:relative; padding:0; margin:0; top:0; vertical-align: top; display:block; transform-origin: top; margin:0px 0px;}
+
+
+/* DETAIL IFRAME HEIGHT CUSTOM
+----------------------------------------------------------------*/
+
+iframe {
+    display: block;
+    width: 100%;
+
+    position:relative;
+    border: none;
+
+    box-sizing: border-box;
+    transform-origin: top;
+    transition: transform .05s linear;
+    backface-visibility: hidden;
+    margin:0 auto;
+    padding:0;
+    vertical-align: top;
+    top:0;
+}
+
+.iframe-email-content{ }
+   
+   
+.emailContentBox{ width:100%;height:1000px; width:100%; margin:0 auto; height:auto; overflow: auto; overflow-x: hidden; }
+
+.emailContentBody{ width:100%;height:9000px;  height:auto;  display:table; }
+
+.unreadAppResize{}
+
+
+/*iphone 6+*/
+
+@media only screen and (width: 414px) {
+  .emailContentBox{height:596px;}   
+    
+}
+
+@media only screen and (width: 736px) {
+     .emailContentBox{height:274px;} 
+    
+}
+
+/*iphone 6*/
+
+@media only screen and (width: 375px) {
+   .emailContentBox{height:527px;}   
+ 
+}
+
+@media only screen and (width: 667px) {
+  .emailContentBox{height:235px;}  
+
+}
+
+
+
+/*iphone 5 + 4*/
+
+@media only screen and (width: 320px) {
+   .emailContentBox{height:428px;}
+
+}
+
+@media only screen and (width: 568px) {
+ .emailContentBox{height:180px;}
+
+}
+
+
+/*galaxy s3-s6*/
+
+@media only screen and (width: 360px) {
+  .emailContentBox{height:500px;}
+
+}
+
+@media only screen and (width: 640px) {
+.emailContentBox{height:220px;}
+    
+}
+
+/*ipad all*/
+
+@media only screen and (width: 768px) {
+ .emailContentBox{height:884px;}
+
+}
+
+@media only screen and (width: 1024px) {
+.emailContentBox{height:628px;}
+
+    
+    
+}
+
+
+/*nextbook*/
+
+@media only screen and (width: 600px) {
+    .emailContentBox{height:885px;}
+   
+}
+
+   @media only screen 
+  and (height: 600px) 
+  and (width: 1024px)
+  and (orientation: landscape) {
+      
+        .emailContentBox{height:460px!important;}  
+      
+
+}
+
+
+
+/*EMAIL DETAIL CSS IONIC OVERIDES RESET
+----------------------------------------------------------------  */
+
+.emailContentBody html, .emailContentBody body, .emailContentBody div, .emailContentBody span, .emailContentBody applet, .emailContentBody object, .emailContentBody iframe, .emailContentBody h1, .emailContentBody h2, .emailContentBody h3, .emailContentBody h4, .emailContentBody h5, .emailContentBody h6, .emailContentBody p, .emailContentBody blockquote, .emailContentBody pre, .emailContentBody a, .emailContentBody abbr, .emailContentBody acronym, .emailContentBody address, .emailContentBody big, .emailContentBody cite, .emailContentBody code, .emailContentBody del, .emailContentBody dfn, .emailContentBody em, .emailContentBody img, .emailContentBody ins, .emailContentBody kbd, .emailContentBody q, .emailContentBody s, .emailContentBody samp, .emailContentBody small, .emailContentBody strike, .emailContentBody strong, .emailContentBody sub, .emailContentBody sup, .emailContentBody tt, .emailContentBody var, .emailContentBody b, .emailContentBody i, .emailContentBody u, .emailContentBody center, .emailContentBody dl, .emailContentBody dt, .emailContentBody dd, .emailContentBody ol, .emailContentBody ul, .emailContentBody li, .emailContentBody fieldset, .emailContentBody form, .emailContentBody label, .emailContentBody legend, .emailContentBody table, .emailContentBody caption, .emailContentBody tbody, .emailContentBody tfoot, .emailContentBody thead, .emailContentBody tr, .emailContentBody th, .emailContentBody td, .emailContentBody article, .emailContentBody aside, .emailContentBody canvas, .emailContentBody details, .emailContentBody embed, .emailContentBody fieldset, .emailContentBody figure, .emailContentBody figcaption, .emailContentBody footer, .emailContentBody header, .emailContentBody hgroup, .emailContentBody menu, .emailContentBody nav, .emailContentBody output, .emailContentBody ruby, .emailContentBody section, .emailContentBody summary, .emailContentBody time, .emailContentBody mark, .emailContentBody audio, .emailContentBody video{
+    
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: top;
+    font: inherit;
+    font-size: 100%;
+
+}
+
+
+
+
+/* DETAIL SWIPE OVERLAY VISUAL ASSISTS
+----------------------------------------------------------------  */
+.swipe-overlay-save{ height:100%; right:0; width:100%; position:absolute;  z-index: 99;  display:block;
+                     
+               
+                     
+                     
+
+
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a6a6a6+0,a6a6a6+100&amp;0.65+0,0+100 */
+background: -moz-linear-gradient(left,  rgba(166,166,166,0.65) 0%, rgba(166,166,166,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(166,166,166,0.65)), color-stop(100%,rgba(166,166,166,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(166,166,166,0.65) 0%,rgba(166,166,166,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(166,166,166,0.65) 0%,rgba(166,166,166,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(166,166,166,0.65) 0%,rgba(166,166,166,0) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(166,166,166,0.65) 0%,rgba(166,166,166,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6a6a6a6', endColorstr='#00a6a6a6',GradientType=1 ); /* IE6-9 */
+
+}
+
+.swipe-overlay-delete{height:100%; width:100%; position:absolute;  z-index: 99;  display:block; 
+
+
+
+                   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a6a6a6+0,a6a6a6+100&amp;0+0,0.65+100 */
+background: -moz-linear-gradient(left,  rgba(166,166,166,0) 0%, rgba(166,166,166,0.65) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(166,166,166,0)), color-stop(100%,rgba(166,166,166,0.65))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(166,166,166,0) 0%,rgba(166,166,166,0.65) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(166,166,166,0) 0%,rgba(166,166,166,0.65) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(166,166,166,0) 0%,rgba(166,166,166,0.65) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(166,166,166,0) 0%,rgba(166,166,166,0.65) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a6a6a6', endColorstr='#a6a6a6a6',GradientType=1 ); /* IE6-9 */
+
+
+
+
+
+
+}
+
+
+.swipe-overlay-save .inbox-save-swipe{background-color:rgba(76, 176,80, 0.5);}
+.swipe-overlay-delete .inbox-delete-swipe{background-color:rgba(245, 67,55, 0.5); }
+
+
+.swipe-overlay-save .inbox-save-swipe, .swipe-overlay-delete .inbox-delete-swipe{margin-top:-97px;  z-index: 101; opacity:1; height:100%;  }
+.swipe-overlay-save .inbox-save-swipe{margin-left:-1px;}
+
+
+
+
+.inbox-save-swipe > .col > span.swipe-icon-box{float:left; margin:10px; margin-top:100px;}
+
+.inbox-delete-swipe > .col > span.swipe-icon-box{float:right; margin:10px;  margin-top:100px; }
+
+
+
+  
+
+/* FOR DETAIL BORDER TESTING
+----------------------------------------------------------------
+.scroll-content{border:1px solid red;}
+
+.inbox-detail-list{border:1px solid blue;}
+
+.inbox-detail-list > .item.row{border:1px solid green;}
+
+.inbox-detail-list > .item.row > .detail-col-img{border:1px solid purple;}
+
+.inbox-detail-list > .item.row > .col.detail-col-info{border:1px solid gold;}
+
+.inbox-detail-list > .item.row > .col.detail-col-info > .detail-title-text{background:aqua;}
+
+.inbox-detail-list > .item.row > .col.detail-col-info > .detail-subject-text{background:#E8AC3C;}
+
+.inbox-detail-list > .item.row > .col.detail-col-info > .detail-date-text{background:#000080;}
+
+
+
+.iframe-block-wrapper{border:1px solid orange; background:green;}
+ 
+.iframe-block-wrapper > .item-body.wrap{background:red; border:1px solid yellow;}
+  
+.iframe-block-wrapper > .item-body.wrap iframe{ background:azure; border:1px solid brown;}
+  */
+
+
+
+/* TUTORIAL WIDGET
+----------------------------------------------------------------*/
+
+.tutorial-widget-block{margin:0; padding:0; font-size:12px;  margin-bottom:1px; margin-top:0!important;}
+
+/*.tutorial-save-block{background:$save-green; color:white; padding:10px 10px;}
+
+.tutorial-return-block{background:gray; color:white; padding:10px 10px;}
+
+.tutorial-delete-block{background:$delete-red; color:white;  padding:10px 10px;}*/
+
+.tutorial-close-btn{     position: absolute;
+    color: white;
+
+    width: 100%;
+    padding: 10px;
+    text-align: right; font-size:26px; right:10px; color:white;}
+
+.tutorial-widget-block i{ display:inline; color:white;}
+
+/*special type overlay*/
+
+.learning-content{ height:50%; width:90%; left:0; right:0; top:0; bottom:0; margin:0 auto; padding:0; display:block; position:absolute; top:60px;}
+
+
+.learning-content h3, .learning-content h2, .learning-content h1, .learning-content p{color:white;}
+
+
+
+.tutorial-save-block{ color:white; padding:10px 10px; font-size:1.2em; }
+
+.tutorial-return-block{background:gray; color:white; padding:20px 10px;}
+
+.tutorial-delete-block{ color:white;  padding:10px 10px;  font-size:1.2em;  }
+
+
+.tutorial-close-btn{font-size:22px; right:10px; color:white;}
+
+
+.tutorial-swipe-overlay{ background-color:rgba(0, 0,0, 0.8); transition: 0.1s opacity linear;  height:100%; position:absolute; z-index: 99;}
+
+
+@media only screen and (min-width: 768px) {
+    
+.tutorial-swipe-overlay{min-height:768px;}
+
+}
+
+
+.tutorial-img{width: 100%;
+              margin: 0 auto;
+              text-align: center;
+              margin-top: 10px;}
+
+
+
+
+/*fullscroll overlay for tutorial*/
+.overflow-scroll .scroll{}
+
+
+
+
+
+/* FULLSCREEN MODAL OVERLAY 
+----------------------------------------------------------------*/
+
+
+@media only screen and (min-width: 360px) {
+    
+   .modal{
+  top: 0 ;
+  bottom: 0 ; 
+  left: 0 ;
+  right: 0 ;
+  width: 100% ;
+}
+
+}
+
+/* offset for ios status bar at the top*/
+
+ .platform-ios.platform-cordova .modal-wrapper .modal, .platform-ipad.platform-cordova .modal-wrapper .modal {top:20pt; z-index: 1000;}
+
+    /*https://forum.ionicframework.com/t/ionic-modal-fullscreen-mode/5609/11*/
+
+    
+ /*.platform-ios.platform-cordova .modal-wrapper .modal .bar-header:not(.bar-subheader) > * {
+    margin-top: 20px;
+  }
+  .platform-ios.platform-cordova .modal-wrapper .modal .bar-header:not(.bar-subheader) {
+    height: 64px;
+  }
+  .platform-ios.platform-cordova .modal-wrapper .modal .has-header,
+  .platform-ios.platform-cordova .modal-wrapper .modal .bar-subheader {
+    top: 64px;
+  }
+ */
+
+
+
+/* OVERIDES GLOBAL ALERT POPUP BACKDROP OVERLAY
+----------------------------------------------------------------*/
+
+.backdrop{background-color: rgba(0, 0, 0, 0.8);}
+
+
+/* CUSTOM EYE CHECKBOX
+----------------------------------------------------------------*/
+
+.eye-toggle{ float:right; padding-right:0px;}
+
+.custom-icon-toggle{   font-size: 20px;
+                       padding: 0px 0px 0px 4px!important;
+                       vertical-align: top!important;
+                       display: block!important;
+
+color:$assertive!important;
+}
+
+
+/* PROGRESS BAR ANIMATION OVERIDES
+----------------------------------------------------------------*/
+
+
+.ui-mprogress .deter-bar,
+.ui-mprogress .indeter-bar,
+.ui-mprogress .query-bar,
+.ui-mprogress .bar-bg,
+.ui-mprogress .buffer-bg,
+.ui-mprogress .mp-ui-dashed {
+
+  background: $assertive; 
+}
+.ui-mprogress .bar-bg,
+.ui-mprogress .buffer-bg {
+
+  background:  $positive; 
+}
+

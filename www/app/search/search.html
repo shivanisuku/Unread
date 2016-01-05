@@ -1,0 +1,114 @@
+<ion-view view-title="Search" cache-view="false" ng-controller="searchController as vm" hide-nav-bar="true">
+
+ <div class="bar bar-header bar-light item-input-inset search-block">
+            <button  class="ion-chevron-left button-clear solidtype"   ng-click="vm.goback()"> </button>
+            <ion-search class="assertive  " placeholder="Search Email" min-length="2" model="vm.inboxItems" source="getEmails(str)" ></ion-search>
+            
+           
+        </div>
+    
+    <ion-content class="inbox-wrapper fixed-footer-offset fixed-header-offset">
+      
+
+
+<!--            <div class="row">
+                <div class="col text-center">
+                   Results:   {{vm.inboxItems.length}}
+                </div>
+
+            </div>-->
+
+        <!--SHOW LOADER -->
+
+
+        <!--<div class="row" ng-show="vm.showloader">-->
+        <!--<div class="col text-center">-->
+        <!--<ion-spinner icon="dots"  class="spinner-positive"></ion-spinner>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div ng-if="vm.showDefaultImage" class="row">
+            <div class="col text-center">
+                <br/><br/><br/>
+                <img class="default-inbox-img" ng-src={{vm.defaultImg}}>
+            </div>
+        </div>
+
+        <!-- SLIDES-->
+        <ion-list>
+            <ion-item    ng-repeat="nl in vm.inboxItems"  class="email-item">
+
+            <ion-slide-box on-slide-changed="vm.onSlide(nl.emailid,$index)" show-pager="false" active-slide=1>
+                <ion-slide>
+                    <div  class="row inbox-save-swipe">
+                        <div class="col text-right">
+                            <i class="icon ion-star custom-icon"></i> {{vm.emailStatus==='Inbox'?" Saved":"Inbox"}}
+                        </div>
+                    </div>
+
+                </ion-slide><!--FIRST SLIDE -->
+                <ion-slide>
+
+                    <div class="list inbox-list" ng-controller="searchDetailController"   >
+                        <a class=" row"  id="email{{nl.emailid}}" ng-style="nl.opened ==1?{'backgroundColor':'#eee'}:''">
+
+                            <div class="inbox-col-img" >
+                                <div class="cat-logo-block">
+                                    <div class="cat-logo-cutoff" ng-click="openModal(nl.emailid,nl.statusName)">
+                                        <img ng-src="{{nl.imagePath}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col inbox-col-info" ng-click="openModal(nl.emailid,nl.statusName,vm.searchPhase)">
+                                <h2>{{nl.fromEmail|trimSubject}}</h2>
+                                <p>{{nl.subject}}</p>
+                            </div>
+                            <div class="col col-20 inbox-col-date text-center">
+                                <div>
+                                    {{nl.createdDate| timeAgo}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </ion-slide><!--SECOND SLIDE -->
+                <ion-slide>
+
+                    <div  class="row inbox-delete-swipe">
+                        <div class="col text-left">
+                            Delete <i  class="icon ion-trash-b custom-icon"></i>
+                        </div>
+                    </div>
+
+                </ion-slide><!--THIRD SLIDE -->
+
+            </ion-slide-box>
+
+
+            </ion-item>
+        </ion-list>
+         </ion-content>
+    <ion-footer-bar >
+        <div class="bar bar-footer bar-assertive">
+            <div class="row button-bar" ng-if="vm.showUndoInbox">
+                <div class="col col-50">
+                    {{vm.undoMessageInbox}}
+                </div>
+                <div class="col col-50 text-right">
+
+                    <button  class="button button-positive ion-ios-undo " ng-click="vm.undoPreviousActionInbox()"> Undo</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center ">
+                    Results:   {{vm.inboxItems.length}}
+                </div>
+
+            </div>
+        </div>
+    </ion-footer-bar>
+    
+
+    
+    
+    
+</ion-view>

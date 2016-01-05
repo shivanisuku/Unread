@@ -1,0 +1,321 @@
+<ion-view  cache-view="false"  view-title="Sign up" ng-controller="signupController as vm" hide-nav-bar="true" class="splash-welcome-wrapper">
+
+
+ <div class="bar bar-clear splash-bar" >
+            <button  class="ion-chevron-left button-clear" ng-if="vm.signUpDetailForm"  ng-click="vm.signFormBackButtonClick()"> </button>
+            <button  class="ion-chevron-left button-clear"  ng-if="!vm.signUpDetailForm && vm.gobackState == 'home'" ng-click="vm.goback(1)"> </button>
+
+        </div>
+
+
+    <ion-content>
+       
+        
+        <div class="row">
+
+
+
+            <div class="col">
+
+                <h2 class="splash-hero-title">
+
+                    <img class="splash-icon-main unread-splash-img" src="img/svg/1869-Unread-Logo-160x160-i1-1-02.svg"/><br>
+                 
+                </h2>
+
+            </div>
+
+        </div>
+        
+                
+        <div class="shift-wrapper">
+        <div class="row">
+            <div class="col">
+                
+<!--                  <h3 class="form-splash-heading">Sign Up</h3>-->
+                  <p class="reg-para">
+                      Register with us once and we'll use this data to sign you up to your favourite subscriptions.</p>
+            </div>
+            
+        </div>
+   
+        
+        
+        <form name="vm.signupForm" class="splash-form"   ng-submit="vm.signFormsubmit(vm.signupForm.$invalid)"  novalidate>
+
+            <div class="list" ng-if="!vm.signUpDetailForm">
+                <!--EMAIL-->
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Email</span>
+                        <input   id="email"  placeholder="you@example.com"  name="email"    ng-pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"  ng-model="vm.signupData.email" required type="email" check-email>
+                    </label>
+
+                <div   ng-messages="vm.signupForm.email.$error" ng-show="vm.signupForm.email.$touched ||vm.submittedEmail ">
+                    <div  class="form-error" ng-message="required">
+                         Email is a required field.
+                    </div>
+                    <div  class="form-error" ng-message="email">
+                        This email format is not valid.
+                    </div>
+                    <div  class="form-error" ng-message="pattern">
+                        This email format is not valid.
+                    </div>
+                    <div class="form-error" ng-message="checkEmail">
+                        Email already in use. Double check it or try signing in, you may have already registered
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+
+                <label class="row item-stacked-label " style="border-bottom:1px solid #ddd;">
+                         <!--PASSWORD-->
+                    <div class="col col-80">
+                         <label class="item item-input item-stacked-label password-special">
+                    <span class="input-label">Password</span>
+                    <input  ng-focus="vm.clearPasswordError()" id="password" placeholder="Please enter your password" name="password" type="password"  ng-model="vm.signupData.password" required ng-if="!vm.showPassword">
+                    <input  ng-focus="vm.clearPasswordError()" name="password" placeholder="Please enter your password"  type="text"  ng-model="vm.signupData.password"  required  ng-if="vm.showPassword">
+
+                </label>
+                    </div>
+                    
+                        <div class="col col-20 col-bottom ">
+                 <label class=" toggle item-toggle toggle-positive eye-toggle ">
+                 <input type="checkbox"  ng-model="vm.showPassword">
+                 <div class="track">
+                     <div class="handle"><i class=" icon ion-eye custom-icon-toggle"></i></div>
+                 </div>
+                 
+             </label>
+
+                
+             </div>
+                    
+                </label>
+
+                
+                <div   ng-messages="vm.signupForm.password.$error" ng-show="vm.signupForm.password.$touched ||vm.submittedEmail ">
+                    <div  class="form-error"ng-message="required">
+                        Password is a required field.
+                    </div>
+
+                    <div class="form-error"  ng-message="pattern">
+                         Please enter a valid password
+                    </div>
+                    <div class="form-error"  ng-message="minlength">
+                         Password must be minimum 6 characters
+                    </div>
+                    <div class="form-error"  ng-message="maxlength">
+                         Password cannot be more than 20 characters
+                    </div>
+                </div>
+                <div  class="form-error" ng-if="vm.errorMessage.length>0">
+                     {{vm.errorMessage}}
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <button class="button button-block button-positive"  type="button" ng-click="vm.signUpFormNextClick(vm.signupForm.email.$valid,vm.signupForm.password.$valid)">Create Account</button>
+                    </div>
+                </div>
+
+            
+            </div>
+
+            <div class="list" ng-if="vm.signUpDetailForm">
+
+
+
+                <!--FIRTS NANME-->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">First Name</span>
+                    <input id="firstname" placeholder="Please enter your first name"   ng-pattern="/^[a-zA-Z]*$/"  ng-minlength="2"   ng-maxlength="40" name="firstname"type="text" ng-model="vm.signupData.firstName" required>
+                </label>
+                <div   ng-messages="vm.signupForm.firstname.$error" ng-show="vm.signupForm.firstname.$touched ||vm.submitted ">
+                    <div  class="form-error" ng-message="required">
+                        First name is a required field.
+                    </div>
+
+                    <div  class="form-error" ng-message="pattern">
+                         Please enter a valid first name.
+                    </div>
+                    <div  class="form-error"  ng-message="minlength">
+                        Please enter a valid first name.
+                    </div>
+                    <div  class="form-error"  ng-message="maxlength">
+                        Please enter a valid first name.
+                    </div>
+                </div>
+                <!--LAST NAME-->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Last Name</span>
+                    <input id="lastname"  ng-focus="vm.scrolltop()" placeholder="Please enter your last name" ng-pattern="/^[a-zA-Z]*$/" name="lastname"type="text" ng-minlength="2"   ng-maxlength="40" ng-model="vm.signupData.lastName" required>
+                </label>
+                <div  ng-messages="vm.signupForm.lastname.$error" ng-show="vm.signupForm.lastname.$touched ||vm.submitted ">
+                    <div class="form-error" ng-message="required">
+                         Last name is a required field.
+                    </div>
+
+                    <div  class="form-error"ng-message="pattern">
+                         Please enter a valid last name.
+                    </div>
+                    <div  class="form-error"  ng-message="minlength">
+                        Please enter a valid last name.
+                    </div>
+                    <div  class="form-error"  ng-message="maxlength">
+                        Please enter a valid last name.
+                    </div>
+                </div>
+                <!--postalcode-->
+                <label class="item item-input ">
+                    <span class="input-label">Postal Code</span>
+                    <input id="postalcode" placeholder="A1A 1A1" class="text-right"  ng-maxlength="7"  ng-pattern="/^[a-zA-Z][0-9][a-zA-Z](\s|)[0-9][a-zA-Z][0-9]$/"  name="postalcode" type="text" ng-model="vm.signupData.postalCode" required>
+                </label>
+                <div   ng-messages="vm.signupForm.postalcode.$error" ng-show="vm.signupForm.postalcode.$touched ||vm.submitted ">
+                    <div class="form-error" ng-message="required">
+                         Postal code is a required field.
+                    </div>
+
+                    <div class="form-error" ng-message="pattern">
+                        This postal code format is not valid
+
+                    </div>
+                </div>
+
+                <!--GENDER -->
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Gender
+                    </div>
+                    <select  name="gender"  id="gender" ng-model="vm.signupData.gender" required>
+                        <option  value=''>Select your gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+
+                    </select>
+                </label>
+                <div   ng-messages="vm.signupForm.gender.$error" ng-show="vm.signupForm.gender.$dirty ||vm.submitted ">
+                    <div class="form-error" ng-message="required">
+                         Gender is a required field.
+                    </div>
+
+                </div>
+                <!--LANGUAGE -->
+                <!--<label class="item item-input item-select">-->
+                    <!--<div class="input-label">-->
+                      <!--Language-->
+                    <!--</div>-->
+                    <!--<select  name="language"  id="language" ng-model="vm.signupData.language" required>-->
+                        <!--<option  value=''>Please select your language</option>-->
+                        <!--<option value="En">English</option>-->
+                        <!--<option value="Fr">French</option>-->
+
+                    <!--</select>-->
+                <!--</label>-->
+                <!--<div   ng-messages="vm.signupForm.language.$error" ng-show="vm.signupForm.language.$dirty ||vm.submitted ">-->
+                    <!--<div class="form-error" ng-message="required">-->
+                        <!-- Please select your language.-->
+                    <!--</div>-->
+
+                <!--</div>-->
+                <!--BIRTHDATE-->
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                       Month
+                    </div>
+                    <select ng-model="vm.signupData.birthmonth" name="birthmonth" id="birthmonth" ng-change="vm.validateDate()" required >
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </label>
+                <div   ng-messages="vm.signupForm.birthmonth.$error" ng-show="vm.signupForm.birthmonth.$dirty ||vm.submitted ">
+                    <div class="form-error" ng-message="required">
+                        Birthday is a required field.
+                    </div>
+                </div>
+                <!-- Day-->
+                <label class="item item-input ">
+                    <span class="input-label">Day</span>
+                    <input placeholder="DD" class="text-right"  pattern="\d*"  max="31" min="1" name="birthday" type="number" ng-model="vm.signupData.birthdate" ng-blur="vm.validateDate()" ng-focus="vm.scrolltop()" required>
+                </label>
+                <div   ng-messages="vm.signupForm.birthday.$error" ng-show="vm.signupForm.birthday.$dirty ||vm.submitted ">
+                    <div class="form-error" ng-message="required">
+                        Birthday is a required field.
+                    </div>
+                    <div class="form-error" ng-message="max">
+                        Please enter a valid day.
+                    </div>
+                    <div class="form-error" ng-message="min">
+                        Please enter a valid day.
+                    </div>
+                    <div class="form-error" ng-message="pattern">
+                         Please enter a valid day.
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Year-->
+                <label class="item item-input ">
+                    <span class="input-label">Year</span>
+                    <input pattern="\d*"  placeholder="YYYY" class="text-right"  max='{{vm.maxyear}}'  min='{{vm.minyear}}' name="birthyear" type="number" ng-model="vm.signupData.birthyear" ng-focus="vm.scrolltop()"  required>
+                </label>
+                <div   ng-messages="vm.signupForm.birthyear.$error" ng-show="vm.signupForm.birthyear.$dirty ||vm.submitted ">
+                    <div class="form-error" ng-message="required">
+                        Birthday is a required field.
+                    </div>
+                    <div class="form-error" ng-message="max">
+                         Should be more than 13 years to register.
+                    </div>
+                    <div class="form-error" ng-message="min">
+                        Please enter a valid year.
+                    </div>
+                    <div class="form-error" ng-message="pattern">
+                         Please enter a valid year.
+                    </div>
+
+                </div>
+
+
+                <!-- ERROR -->
+                <div  class="form-error" ng-if="vm.errorMessage.length>0">
+                     {{vm.errorMessage}}
+                </div>
+                <!-- SUBMIT-->
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" ng-show="!vm.showloading"class="button button-block button-positive" >Next</button>
+                        <ion-spinner icon="dots" ng-show="vm.showloading" class="spinner-positive"></ion-spinner>
+
+                    </div>
+                    <!--<div class="col text-center">-->
+                        <!--<button type="button" class="button button-large button-positive" ng-click="vm.signFormBackButtonClick()">Back</button>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </form>    <div class="row">
+                    <div class="col text-center">
+                        Already A Member?  <a  href='' ng-click="vm.goback(2)">Login.</a>
+                    </div>
+                </div>
+            
+               </div>
+            
+    </ion-content>
+</ion-view>

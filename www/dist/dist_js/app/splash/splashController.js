@@ -1,0 +1,1 @@
+!function(){"use strict";function o(o,t,n){ionic.Platform.ready(function(){n.nextViewOptions({historyRoot:!0}),o.go("app.inbox")})}angular.module("newsletterApp").controller("splashController",o),o.$inject=["$state","$scope","$ionicHistory"]}();

@@ -1,0 +1,168 @@
+<ion-view  cache-view="false" view-title="Login" ng-controller="loginController as vm" hide-nav-bar="true" class="splash-welcome-wrapper">
+
+    <!--<div class="bar bar-clear splash-bar">-->
+      <!--<button ng-if="vm.showbackbutton" class="ion-chevron-left button-clear"   ng-click=" vm.goback()"> </button>-->
+    <!--</div>-->
+  <ion-content>
+
+   <div class="row">
+            
+            
+            
+            
+            
+            <div class="col">
+    
+           <h2 class="splash-hero-title">
+<!--                        <i class="ion-log-in splash-icon-sub"></i><br>-->
+
+<img class="splash-icon-main unread-splash-img" src="img/svg/1869-Unread-Logo-160x160-i1-1-02.svg"/><br>
+
+                  
+                    </h2>
+                
+                
+                 </div>
+            
+        </div>
+      
+        <div class="shift-wrapper">
+            
+            
+        <div class="row">
+            
+            
+            
+            
+            
+            <div class="col">
+                
+<!--                  <h3 class="form-splash-heading">Login</h3>-->
+                  <p class="reg-para">Please enter your login credentials.</p>
+            </div>
+            
+        </div>
+            
+            
+            
+    
+    <form name="vm.loginForm" class="splash-form" ng-submit="vm.doLogin(vm.loginForm.$invalid)" novalidate>
+      <div class="list">
+        <!--EMAIL-->
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input id="email" placeholder="you@example.com" name="email" type="email" ng-pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/" ng-focus="vm.loginFailedMessage='';"  ng-model="vm.loginData.email" required>
+        </label>
+        <div   ng-messages="vm.loginForm.email.$error" ng-show="vm.loginForm.email.$touched || vm.submitted ">
+          <div  class="form-error"ng-message="required">
+            Email is a required field.
+          </div>
+          <div  class="form-error" ng-message="email">
+            This email format is not valid.
+          </div>
+          <div  class="form-error" ng-message="pattern">
+            This email format is not valid.
+          </div>
+
+        </div>
+        <!--EMAIL END-->
+        <!--PASSWORD-->
+        
+         <label class="row item-stacked-label " style="border-bottom:1px solid #ddd;">
+             
+               <div class="col col-80">
+             
+                     <label class="item item-input item-stacked-label password-special">
+          <span class="input-label">Password</span>
+          <input  id="password" placeholder="Please enter your password"  name="password"   type="password" ng-model="vm.loginData.password"   ng-if="!vm.showPassword" required>
+          <input  name="password" placeholder="Please enter your password" type="text"   ng-model="vm.loginData.password" required  ng-if="vm.showPassword" ng-focus="vm.scrolltop()">
+
+          
+          
+        </label>
+               </div>
+             
+            <div class="col col-20 col-bottom ">
+              
+                
+                 <label class=" toggle item-toggle toggle-positive eye-toggle ">
+ 
+                   
+                 <input type="checkbox"  ng-model="vm.showPassword">
+                 <div class="track">
+                     <div class="handle"><i class=" icon ion-eye custom-icon-toggle"></i></div>
+                 </div>
+                 
+                 
+                 
+             </label>
+
+                
+             </div>
+
+             
+         </label>
+             
+
+        
+        
+<!--        <ion-checkbox ng-model="vm.showPassword">Show password</ion-checkbox>-->
+        
+        
+        
+        <div   ng-messages="vm.loginForm.password.$error" ng-show="vm.loginForm.password.$touched || vm.submitted ">
+          <div  class="form-error" ng-message="required">
+            Password is a required field.
+          </div>
+          <!--<div  class="form-error" ng-message="minlength">-->
+            <!--Password should have minimum length of 6 characters.-->
+          <!--</div>-->
+          <!--<div  class="form-error" ng-message="maxlength">-->
+            <!--Password cannot be more than 20 characters.-->
+          <!--</div>-->
+          <!--<div  class="form-error" ng-message="pattern">-->
+            <!--Password is invalid-->
+          <!--</div>-->
+        </div>
+        <!--PASSWORD END-->
+        <!--GENRAL ERROR MESSAGE-->
+        <div  class="form-error" ng-show="vm.loginFailedMessage.length>0">
+          {{vm.loginFailedMessage}}
+        </div>
+        <!--GENERAL ERROR MESSAGE END-->
+        <!--lOGIN BUTTON-->
+        <label class="item" ng-if="!vm.showloading">
+          <button  class="button button-block button-positive"  type="submit">Login</button>
+        </label>
+        <div class="row" ng-if="vm.showloading">
+          <div class="col text-center">
+            <ion-spinner icon="dots"  class="spinner-positive"></ion-spinner>
+            </div>
+          </div>
+        <!--lOGIN BUTTON END-->
+
+
+      </div>
+    </form>
+    <div class="row">
+        <div class="col col-10">
+        </div>
+            
+      
+            <div class="col   text-left">
+        <a  href='' ng-click="vm.gotoForgotPassword()">Forgot Password?</a>
+      </div>
+        
+      <div class="col  text-right">
+      <a  href='' ng-click="vm.gotoSignUp()">Join Now!</a>
+      </div>
+      <div class="col col-10">
+        </div>
+  
+        
+    </div>
+            
+        </div>
+
+  </ion-content>
+</ion-view>

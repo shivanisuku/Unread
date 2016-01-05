@@ -1,0 +1,1 @@
+angular.module("newsletterApp").factory("$exceptionHandler",function(){return function(n,e){console.log(n,e)}});

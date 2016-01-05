@@ -1,0 +1,240 @@
+/* Empty. Add your own CSS if you like */
+/** Styling for the username field **/
+
+
+body, .ionic-body{ }
+
+
+label.item.has-error {
+    border-bottom: 2px solid red;
+}
+
+/** Styling for the password field when an error exists**/
+label.item.has-error-lr {
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+}
+
+/** Styling for the password field when an error has been resolved**/
+label.item.valid-lr {
+    border-left: 2px solid green;
+    border-right: 2px solid green;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+    margin: 5px 0
+}
+.form-error {
+    padding: 2px 0 2px 16px;
+    color: red;
+}
+.slider {
+    /*height: 120px;*/
+    width:100%
+}
+.slider-slide {
+    color: #000;
+    background-color: #fff;
+    height: 100%;
+}
+
+/*HOME SLIDE CSSS*/
+.homebox{
+    text-align: center;
+    padding-bottom: 100px;
+    padding-top: 25px;
+    height: 600px !important;
+
+}
+.homeslide{
+
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    position:relative;
+}
+
+.home-login-title
+{
+    position: absolute; bottom: 60%;
+    width: 100%;
+    text-align: center;
+    color:red;
+    color:white;
+}
+.home-login-button
+{
+    position: absolute; bottom: 10%;
+    width: 100%;
+    text-align: center
+}
+
+
+.slider-pager {
+    color: #ffffff;  !important;}
+
+
+
+/*INBOX SLIDE CSSS*/
+.box{
+    text-align: center;
+    padding-bottom: 100px;
+    padding-top: 25px;
+    height: 150px !important;
+}
+
+.green{
+    background-color: green;
+}
+
+
+.white{
+    background-color:#D0D0D0 ;
+}
+
+.orange{
+    background-color: #E8AC3C;
+}
+
+.subSelected {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+}
+.item.wrap, .item-content.wrap,item.item-body.wrap {
+    white-space: normal;
+    overflow: initial;
+}
+.large-icon{
+    font-size: larger;
+}
+.custom-icon {
+    font-size: 64px;
+    color : red;
+}
+
+/* SUBSCRIPTION*/
+.custom-icon-category
+{
+    font-size: 34px;
+    color : white;
+}
+.category-name
+{
+    background: #886aea none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 5px;
+    width: 100%;
+}
+
+
+/* Custom ionic overides
+----------------------------------------------------------------*/
+
+/*bar-assertive manual conversion overide to red to purple*/
+
+.bar.bar-assertive {
+    border-color: #e42012;
+    border-color: #673ab7;
+    background-color: #ef473a;
+      background-color: #673ab7;
+    background-image: linear-gradient(0deg, #e42012, #e42012 50%, transparent 50%);
+    color: #fff; 
+
+box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.14);
+
+}
+
+.bar.bar-assertive .title {
+    color: #fff; }
+
+.bar.bar-assertive.bar-footer {
+    background-image: linear-gradient(180deg, #e42012, #e42012 50%, transparent 50%); }
+
+.bar-assertive .button {
+  border-color: #e42012;
+    border-color: #673ab7;
+  background-color: #ef473a;
+   background-color: #673ab7;
+  color: #fff; }
+
+ .bar-assertive .button:hover {
+    color: #fff;
+    text-decoration: none; }
+ 
+  .bar-assertive .button.active, .bar-assertive .button.activated {
+    border-color: #e42012;
+     border-color: #673ab7;
+    background-color: #e42012;
+     background-color: #673ab7;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); }
+  
+  .bar-assertive .button.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 17px; }
+  
+  .bar-assertive .button.button-icon {
+    border-color: transparent;
+    background: none; }
+
+  
+ /*top bar overides
+----------------------------------------------------------------*/
+ 
+ .bar{height:56px; padding-left:11px;}
+
+.bar .title{text-align:left; height:56px; line-height:52px; font-size:20px; padding-left:10px;}
+
+.has-header{top:56px;}
+
+
+/*button positive overides
+----------------------------------------------------------------*/
+
+.button.button-positive {
+    border-color: #0c63ee;
+     border-color: #ff5252;
+    background-color: #387ef5;
+      background-color: #ff5252;
+    color: #fff; }
+
+.button.button-positive:hover {
+      color: #fff;
+      text-decoration: none; }
+
+.button.button-positive.active, .button.button-positive.activated {
+      border-color: #0c63ee;
+      border-color: #ff8686;
+      background-color: #0c63ee;
+      background-color: #ff8686;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); }
+
+.button.button-positive.button-clear {
+      border-color: transparent;
+      background: none;
+      box-shadow: none;
+      color: #387ef5;
+      color: #ff8686;
+}
+
+.button.button-positive.button-icon {
+      border-color: transparent;
+      background: none; }
+
+.button.button-positive.button-outline {
+      border-color: #387ef5;
+      border-color: #ff8686;
+      background: transparent;
+      color: #387ef5;
+        color: #ff8686;
+}
+
+.button.button-positive.button-outline.active, .button.button-positive.button-outline.activated {
+        background-color: #387ef5;
+         background-color: #ff8686;
+        box-shadow: none;
+        color: #fff; }

@@ -1,0 +1,82 @@
+<ion-view  cache-view="false"  view-title="{{vm.category.name}}" align-title="center" ng-controller="subscriptioncategoryController as vm"  hide-nav-bar="true">
+
+    <div class="bar bar-assertive bar-header">
+        <button  class="ion-chevron-left button-clear"  ng-click="vm.subscriptionFormsubmit()"> </button>
+        <div class="h1 title">{{vm.category.name.length?vm.category.name:'All'}}</div>
+        <button class="ion-android-checkbox-outline-blank button btn-none" id="selectAll" ng-if='vm.selectAll && vm.category.name.length' ng-click="vm.SelectAllButton()"> Select All</button>
+        <button class="ion-android-checkbox-outline button btn-none"  ng-if='!vm.selectAll && vm.category.name.length' ng-click="vm.UnSelectAllButton()"> Unselect All</button>
+
+    </div>
+    <ion-content>
+
+
+
+<!-- Selected:{{vm.signupIds.length}}-->
+
+
+        <!--SHOW LOADER -->
+        <img src="img/animated-load.gif" class="animated-loader-img" ng-show="vm.showloading"/>
+        <div class="category-contents fixed-footer-offset fixed-header-offset">
+
+
+            
+                    <div  class="row" ng-repeat="newsletter in vm.newsletters"  ng-if="$index % 4 === 0">
+
+                        <div class="col col-25 cat-item-box" ng-if="$index <vm.newsletters.length">
+                            <div class="cat-logo-block" ng-click="vm.setSelectedList(vm.newsletters[$index].nl.id,vm.newsletters[$index].nl.categoryId)" ng-class="vm.signupIds.indexOf(vm.newsletters[$index].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'">
+                                <div class="cat-logo-cutoff">
+                                 <div class="cat-logo-overlay"></div>
+                                <img ng-src="{{vm.newsletters[$index].nl.imagePath|| '/img/newsletter/news_1.jpg'}} " alt="{{vm.newsletters.nl.name}}"  />
+                                <i ng-class="vm.signupIds.indexOf(vm.newsletters[$index].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+                             </div>
+                        </div>
+                        <div class="col col-25 cat-item-box" ng-if="$index + 1 < vm.newsletters.length">
+                            <div class="cat-logo-block" ng-click="vm.setSelectedList(vm.newsletters[$index + 1].nl.id,vm.newsletters[$index + 1].nl.categoryId)" ng-class="vm.signupIds.indexOf(vm.newsletters[$index+1].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'">
+                                <div class="cat-logo-cutoff">
+                                 <div class="cat-logo-overlay"></div>
+                                <img ng-src="{{vm.newsletters[$index + 1].nl.imagePath || '/img/newsletter/news_1.jpg'}}" alt="{{vm.newsletters.nl.name}}"  />
+                                <i ng-class="vm.signupIds.indexOf(vm.newsletters[$index+1].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+                            </div>
+                        </div>
+                        <div class="col col-25 cat-item-box" ng-if="$index + 2 <vm.newsletters.length">
+                            <div class="cat-logo-block" ng-click="vm.setSelectedList(vm.newsletters[$index + 2].nl.id,vm.newsletters[$index + 2].nl.categoryId)" ng-class="vm.signupIds.indexOf(vm.newsletters[$index+2].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'" >
+                                <div class="cat-logo-cutoff">
+                                <div class="cat-logo-overlay"></div>
+                               <img ng-src="{{vm.newsletters[$index + 2].nl.imagePath || '/img/newsletter/news_1.jpg'}}" alt="{{vm.newsletters.nl.name}}"  />
+                               <i ng-class="vm.signupIds.indexOf(vm.newsletters[$index+2].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+                             </div>
+                        </div>
+                        <div class="col col-25 cat-item-box" ng-if="$index + 3 < vm.newsletters.length">
+                            <div class="cat-logo-block" ng-click="vm.setSelectedList(vm.newsletters[$index + 3].nl.id,vm.newsletters[$index + 3].nl.categoryId)" ng-class="vm.signupIds.indexOf(vm.newsletters[$index+3].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'">
+                             <div class="cat-logo-cutoff">
+                                <div class="cat-logo-overlay"></div>
+                               <img ng-src="{{vm.newsletters[$index + 3].nl.imagePath || '/img/newsletter/news_1.jpg'}}" alt="{{vm.newsletters.nl.name}}"  />
+                               <i ng-class="vm.signupIds.indexOf(vm.newsletters[$index+3].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+              <!--news letter div-->
+         
+
+
+    </ion-content>
+    
+    
+        <!--<div class="bar bar-footer bar-assertive">-->
+                <!--<div class="row">-->
+                      <!--<div class="col text-center ">-->
+                          <!--Selected:   {{vm.signupIds.length}}-->
+                      <!--</div>-->
+             <!-- -->
+              <!--</div>-->
+        <!--</div>-->
+    <ion-footer-bar class="bar bar-footer bar-assertive">
+        <div class="row">
+            <div class="col text-center ">
+                Selected:   {{vm.signupIds.length}}
+            </div>
+        </div>
+    </ion-footer-bar>
+    
+</ion-view>

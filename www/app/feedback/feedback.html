@@ -1,0 +1,58 @@
+<ion-view  view-title="Feedback" ng-controller="feedbackController as vm">
+
+    <ion-content>
+
+<form name="vm.feedbackForm" ng-submit="vm.feedbackformSubmit(vm.feedbackForm.$invalid)" novalidate>
+    <!--Type -->
+    <label class="item item-input item-select">
+        <div class="input-label">
+            Type
+        </div>
+        <select  name="type"  id="type" ng-model="vm.feedbackFormData.type" required>
+            <option  value=''>Select Feedback Type</option>
+            <option value="Suggest new brand subscriptions">Suggest New Brand Subscriptions</option>
+            <option value="Suggest features">Suggest Features</option>
+            <option value="Report issues">Report Issues </option>
+            <!--<option value="Feedback for particular email">Feedback for particular email</option>-->
+
+        </select>
+    </label>
+    <div   ng-messages="vm.feedbackForm.type.$error" ng-show="vm.feedbackForm.type.$touched ||vm.submitted ">
+        <div class="form-error" ng-message="required">
+             Please select the type.
+        </div>
+
+    </div>
+    <!--Description -->
+    <label class="item item-input item-stacked-label">
+        <div class="input-label">
+            Description
+        </div>
+        <textarea rows="3" name="description" placeholder="Please enter your feedback or comment." ng-pattern="/^[a-zA-Z0-9\s ]*$/" id="description"  ng-model="vm.feedbackFormData.description" required></textarea>
+    </label>
+    <div   ng-messages="vm.feedbackForm.description.$error" ng-show="feedbackForm.description.$touched ||vm.submitted ">
+        <div class="form-error" ng-message="required">
+             Please enter the description.
+        </div>
+        <div class="form-error" ng-message="pattern">
+            Please enter the valid text in description.
+        </div>
+
+    </div>
+    <label class="row" ng-if="!vm.showloading">
+        <div class="col">
+        <button class="button button-block button-positive"  type="submit" >Submit</button>
+        </div>
+        
+    </label>
+    <div class="row" ng-if="vm.showloading">
+        <div class="col text-center">
+            <ion-spinner icon="dots"  class="spinner-positive"></ion-spinner>
+        </div>
+    </div>
+</form>
+
+
+
+    </ion-content>
+</ion-view>

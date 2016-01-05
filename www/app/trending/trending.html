@@ -1,0 +1,68 @@
+<ion-view view-title="Trending" cache-view="true" ng-controller="trendingController as vm">
+    <ion-nav-buttons side="right">
+
+        <!--<button class="button icon button-clear ion-ios-search" ng-click="vm.showSearchTextBox=!vm.showSearchTextBox;vm.searchText=''"></button>-->
+    </ion-nav-buttons>
+ <div ng-if =vm.showSearchTextBox class="list search-block">
+            <div class="bar bar-header item-input-inset">
+                <label class="item-input-wrapper">
+                    <i class="icon ion-ios-search placeholder-icon"></i>
+                    <input type="search" placeholder="Search..." ng-model="vm.searchText.$">
+                </label>
+                <button class="button ion-close button-clear " ng-click="vm.searchText=''">
+                   
+                </button>
+            </div>
+
+        </div>
+    <ion-content class="inbox-wrapper">
+
+        <!--SHOW LOADER -->
+        <img src="img/animated-load.gif" class="animated-loader-img" ng-show="vm.showloader"/>
+
+
+        <div id="demoIn_trending"></div>
+        <!--Show default image -->
+        <div ng-if="vm.showDefaultImage" class="row">
+
+            <div class="col text-center">
+                <br/><br/><br/>
+                <img class="default-inbox-img" src="img/newsletter/default_trending.png">
+            </div>
+
+        </div>
+        <!-- Trending ITEMS -->
+        <ion-list>
+        <ion-item  ng-repeat="nl in vm.trendingItems | filter:vm.searchText:strict |orderBy :'emailid':true" class="email-item">
+
+
+            <div  ng-controller="detailController"  class="list inbox-list" >
+
+                       <a class="row">
+
+                  <div class="inbox-col-img">
+                      <div class="cat-logo-block">
+                          <div class="cat-logo-cutoff" ng-click="openModal(nl.emailid,nl.statusName)">
+
+                              <img ng-src="{{nl.imagePath}}">
+
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col inbox-col-info" ng-click="openModal(nl.emailid,nl.statusName)">
+                      <h2>{{nl.fromEmail|trimSubject}}</h2>
+                      <p>{{nl.subject}}</p>
+                  </div>
+
+                  <div class="col col-20 inbox-col-date text-center">
+                      <div>
+                          {{nl.emailSendingDate| timeAgo}}
+                      </div>
+                  </div>
+              </a>
+        </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

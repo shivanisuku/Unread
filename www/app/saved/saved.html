@@ -1,0 +1,142 @@
+<ion-view view-title="Saved" cache-view="true" ng-controller="savedController as vm">
+
+    <ion-nav-buttons side="right">
+
+        <button class="button icon button-clear ion-ios-search " ng-click="vm.gotosearch()"></button>
+    </ion-nav-buttons>
+    <ion-content    class="inbox-wrapper">
+        <ion-refresher
+                pulling-text={{vm.pullRefreshText}}
+                on-refresh="vm.doRefresh()"
+                pulling-icon="dots"
+                spinner="none">
+        </ion-refresher>
+        <!--SHOW LOADER -->
+        <img src="img/animated-load.gif" class="animated-loader-img" ng-show="vm.showloader"/>
+
+
+        <!--CATEGORY DROP DOWN -->
+        <label class="item item-input item-select">
+
+            <div class="input-label" >Select Category</div>
+
+            <select  name="category" style="max-width:60%;" id="category" ng-model="vm.selectedCategory" ng-change="vm.categoryChanged()">
+                <option value="" class="ng-pristine ng-untouched ng-valid ng-binding">All </option>
+                <option ng-repeat="option in vm.category |orderBy:'name'" value="{{option.id}}"  >{{option.name}}</option>
+
+            </select>
+        </label><!--CATEGORY DROP DOWN ENDS -->
+
+
+
+
+
+
+        <!--<div class="row" ng-show="vm.showloader">-->
+        <!--<div class="col text-center">-->
+        <!--<ion-spinner icon="dots"  class="spinner-positive"></ion-spinner>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div ng-if="vm.showDefaultImage" class="row">
+
+            <div class="col text-center">
+                <br/><br/><br/>
+                <img class="default-inbox-img" src="img/newsletter/default_save.png">
+            </div>
+
+        </div>
+        <!--<div>-->
+            <!--Unread emails:{{vm.UnreadCount}}-->
+        <!--</div>-->
+        <!-- SLIDES-->
+        <ion-list>
+        <!--<ion-item  ng-repeat="nl in vm.inboxItems| filter:vm.searchText:strict| filter:{categoryId:vm.selectedCategory} |orderBy :'emailid':true" class="email-item">-->
+            <ion-item  ng-repeat="nl in vm.inboxItems|orderBy :'emailid':true" class="email-item">
+            <ion-slide-box on-slide-changed="vm.onSlide(nl.emailid,$index)" show-pager="false" active-slide=1>
+                <ion-slide>
+                    <div  class="row inbox-inbox-swipe">
+                        <div class="col text-right">
+                            <span>
+                            <i class="icon ion-email-unread custom-icon"></i> Move to Inbox
+                            </span>
+                        </div>
+                    </div>
+
+                </ion-slide><!--FIRST SLIDE -->
+                <ion-slide>
+
+                    <div class="list inbox-list" ng-controller="detailController"   >
+                        <a  id="email{{nl.emailid}}"  class="row" ng-style="nl.opened ==1?{'backgroundColor':'#eee'}:''">
+
+                            <div class="inbox-col-img" >
+                                <div class="cat-logo-block">
+                                    <div class="cat-logo-cutoff" ng-click="openModal(nl.emailid,nl.statusName)">
+                                        <img ng-src="{{nl.imagePath}}">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col inbox-col-info" ng-click="openModal(nl.emailid,nl.statusName)">
+                                <h2>{{nl.fromEmail|trimSubject}}</h2>
+                                <p>{{nl.subject}}</p>
+                            </div>
+
+                            <div class="col col-20 inbox-col-date text-center">
+                                <div>
+                                    {{nl.createdDate| timeAgo}}
+                                </div>
+                            </div>
+
+
+                        </a>
+                    </div>
+
+                </ion-slide><!--SECOND SLIDE -->
+                <ion-slide>
+
+                    <div  class="row inbox-delete-swipe">
+
+
+                        <div class="col text-left">
+                            <span> 
+                            <i  class="icon ion-trash-b custom-icon"></i>Delete
+                            </span>
+                        </div>
+
+
+                    </div>
+
+                </ion-slide><!--THIRD SLIDE -->
+
+            </ion-slide-box>
+        </ion-item>
+        </ion-list>
+        <div class="row" ng-show="vm.viewMoreLoader && !vm.showDefaultImage">
+            <!--<img src="img/animated-load.gif" class="animated-loader-img" />-->
+            <div class="col text-center">
+                <ion-spinner icon="lines"  class="spinner-positive"></ion-spinner>
+            </div>
+        </div>
+        <div class="row" ng-if="!vm.viewMoreLoader && !vm.moreItemsAvailable && !vm.showloader && !vm.showDefaultImage && vm.pageNumber>2 && vm.inboxItems.length>9">
+            <div class="col text-center">
+                No more emails
+            </div>
+        </div>
+        <ion-infinite-scroll  immediate-check="false" ng-if="vm.moreItemsAvailable" on-infinite="vm.populateNewsletters()" distance="2%" icon='none'></ion-infinite-scroll>
+        <!--<ion-infinite-scroll ng-if="vm.moreItemsAvailable && vm.pageNumber>1" on-infinite="vm.populateNewsletters()" distance="10%" spinner='dots'></ion-infinite-scroll>-->
+    </ion-content>
+    <ion-footer-bar ng-if="vm.showUndoInbox">
+        <div class="bar bar-footer bar-assertive">
+            <div class="row button-bar">
+                <div class="col col-66 text-left">
+                    {{vm.undoMessageInbox}}
+                </div>
+                <div class="col  text-right">
+
+                    <button  class="button icon ion-ios-undo footer-undo-btn " ng-click="vm.undoPreviousActionInbox()"> Undo</button>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

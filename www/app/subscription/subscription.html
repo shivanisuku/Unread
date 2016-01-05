@@ -1,0 +1,94 @@
+<ion-view class="category-container"  view-title="My Subscriptions"  cache-view="false" ng-controller="subscriptionController as vm">
+    <ion-nav-buttons side="right" >
+        <button class="ion-checkmark button btn-none "  ng-click="vm.gotoInbox()"> Done</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="categoryWrapper">
+            <!--SHOW LOADER -->
+            <img src="img/animated-load.gif" class="animated-loader-img" ng-show="vm.showloading"/>
+
+<!--                <div class="row" style="background:beige;">
+                <div class="col text-center ">
+                 
+                    <p style="margin-bottom:5px;"> <i class=" ion-paper-airplane main-nav-icon"></i> Please select your Subscriptions. </p>
+                </div>
+            </div>-->
+
+
+
+             <div class="category-box" id="category-{{category.category.id}}" ng-repeat="category in vm.newsletters|orderBy: 'order'">
+                 
+             <div class="row category-name">
+                 <div class="col">
+                 <a ng-click="vm.activateCategory(category.category.id)">
+                     <!--<i ng-class="vm.active===category.category.id?'ion-ios-minus-outline':'ion-ios-plus-outline'"></i>  -->
+                     <div class="subscription-icon-block">
+                         <img class="subscription-icon-img" ng-src="img/newsletter/icon-category-{{category.category.id}}.svg"/>
+                     </div>
+
+                     <div class="categoryNameText">{{category.category.name}}</div>
+                 </a>
+                 </div>
+
+             </div>
+                 <div class="category-contents cssSlideUp subscription-animation" ng-show="vm.active===category.category.id">
+
+                          <div class="row"  ng-repeat="newsletter in category.newsletters |orderBy: 'nlOrder'"  ng-if="$index % 4 === 0 && $index <5">
+                              <div class="col col-25 cat-item-box" ng-if="$index <category.newsletters.length">
+                                  <div class="cat-logo-block" ng-click="vm.setSelectedList(category.newsletters[$index].nl.id,category.newsletters[$index].nl.categoryId)" ng-class="vm.signupIds.indexOf(category.newsletters[$index].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'">
+                                      <div class="cat-logo-cutoff">
+                                          <div class="cat-logo-overlay"></div>
+                                          <img ng-src="{{category.newsletters[$index].nl.imagePath|| '/img/newsletter/icon-category-0.svg'}} " alt="{{category.newsletters.name}}"    /><i ng-class="vm.signupIds.indexOf(category.newsletters[$index].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+
+                                  
+                                  </div>
+                                  
+                              </div>
+                              <div class="col col-25 cat-item-box" ng-if="$index + 1 < category.newsletters.length">
+ <div class="cat-logo-block" ng-click="vm.setSelectedList(category.newsletters[$index + 1].nl.id,category.newsletters[$index+1].nl.categoryId)" ng-class="vm.signupIds.indexOf(category.newsletters[$index+1].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'">
+     <div class="cat-logo-cutoff">
+          <div class="cat-logo-overlay"></div>
+         <img ng-src="{{category.newsletters[$index + 1].nl.imagePath || '/img/newsletter/news_1.jpg'}}" alt="{{category.newsletters.name}}"  />
+         <i ng-class="vm.signupIds.indexOf(category.newsletters[$index+1].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+                                  
+ </div>
+                                  
+                              </div>
+                              <div class="col col-25 cat-item-box" ng-if="$index + 2 <category.newsletters.length">
+ <div class="cat-logo-block" ng-click="vm.setSelectedList(category.newsletters[$index + 2].nl.id,category.newsletters[$index+2].nl.categoryId)" ng-class="vm.signupIds.indexOf(category.newsletters[$index+2].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'">
+     <div class="cat-logo-cutoff">
+          <div class="cat-logo-overlay"></div>
+         <img ng-src="{{category.newsletters[$index + 2].nl.imagePath || '/img/newsletter/news_1.jpg'}}" alt="{{category.newsletters.name}}"   /> <i ng-class="vm.signupIds.indexOf(category.newsletters[$index+2].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+                                 
+ </div>
+                              
+                              </div>
+                              <div class="col col-25 cat-item-box" ng-if="$index + 3 < category.newsletters.length">
+ <div class="cat-logo-block" ng-click="vm.setSelectedList(category.newsletters[$index + 3].nl.id,category.newsletters[$index+3].nl.categoryId)" ng-class="vm.signupIds.indexOf(category.newsletters[$index+3].nl.id)>-1?'logo-background-state-active':'logo-background-state-neutral'">
+     <div class="cat-logo-cutoff">
+          <div class="cat-logo-overlay"></div>
+         <img ng-src="{{category.newsletters[$index + 3].nl.imagePath || '/img/newsletter/news_1.jpg'}}" alt="{{category.newsletters.name}}"   /> <i ng-class="vm.signupIds.indexOf(category.newsletters[$index+3].nl.id)>-1?'ion-android-checkbox-outline':'ion-android-checkbox-outline-blank'" ></i></div>
+                                 
+ </div>
+                                  
+                              </div>
+                            </div>  <!--news letter div-->
+
+                     <div class="row">
+                         <div class="col text-center">
+                     <a  ng-click="vm.moreCategory(category.category.id)" class="button button-positive button-small view-more-btn-custom" ng-if="category.newsletters.length>8" type="button">View More</a><br>
+                             </div>
+                         </div>
+            </div>
+          
+        </div><!--category div-->
+
+        </div><!--Main div-->
+
+
+        
+        
+        
+    </ion-content>
+</ion-view>
+

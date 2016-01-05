@@ -1,0 +1,45 @@
+<ion-view  view-title="Home" ng-controller="homeController as vm"  hide-nav-bar="true">
+
+    <ion-content class="splash-slide">
+
+
+        <ion-slide-box show-pager="true" does-continue="true"  >
+            <ion-slide>
+                <div class="homebox homeslide demo-item0" style="background-image: url('img/home_slider/slide1.jpg')">
+                    
+                    <a class="button button-small button-clear splash-skip-btn" ng-click="vm.gotoLogin()">Skip Tutorial</a>
+                    
+                    <h2 class="home-login-title">
+                        <div class="unread-icon-box">
+                                    <img class="splash-icon-main unread-splash-img" src="img/svg/1869-Unread-Logo-160x160-i1-1-02.svg"/>
+                                
+                        </div>
+
+
+                    </h2>
+                    <div class="home-login-button">
+                        <a class="button button-large button-block button-clear " ng-click="vm.gotoNextSlide()"> Get Started&nbsp;&nbsp;<i class="ion-ios-play" style=" "></i></a>
+
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="homebox homeslide splashdemo demo-item1" style="background-image: url('img/home_slider/splash-slide1.png')">
+
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div  class="homebox homeslide splashdemo demo-item2" style="background-image: url('img/home_slider/splash-slide2.png')">
+
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div  on-drag-left="vm.slideChange()" class="homebox homeslide splashdemo demo-item3" style="background-image: url('img/home_slider/splash-slide3.png')">
+
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+
+
+    </ion-content>
+</ion-view>

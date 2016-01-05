@@ -1,0 +1,255 @@
+<ion-modal-view >
+    <ion-header-bar>
+        <div class="bar bar-header bar-assertive">
+            <div class="detail-bar-wrapper" style="height: 100% !important">
+                <button class="ion-chevron-left button-clear " ng-click="closeModal()"></button>
+                <div class="detail-button-division" >
+                <!--<div class="detail-button-division" ng-if="showEmailDSMAction">-->
+                <!--<button  class=" button button-icon ion-star pull-right view-detail-button " ng-click="emailDSMAction(email.emailid,2,1)" ng-if="email.statusName==='Inbox'"></button>-->
+                <!--<button  class=" button button-icon ion-star pull-right view-detail-button " ng-click="emailDSMAction(email.emailid,1,1)" ng-if="email.statusName==='Save'"></button>-->
+                <!--<button  class=" button button-icon ion-trash-b view-detail-button" ng-click="emailDSMAction(email.emailid,3,1)" ng-if="email.statusName==='Inbox' ||email.statusName==='Save' "></button>-->
+                <button  class="button button-icon icon ion-android-more-vertical view-detail-button" ng-click="openPopover($event)"></button>
+                </div>
+                
+            </div><!--button bar ends-->
+        </div><!--header bar ends-->
+
+
+    </ion-header-bar>
+
+    <ion-content>
+
+        <!--SHOW LOADER -->
+        <img src="img/animated-load.gif" class="animated-loader-img" ng-show="showloader_det"/>
+
+        <!--TUTORIAL OVERLAY  -->
+        <!--<div class="row tutorial-widget-block tutorial-swipe-overlay " ng-if="showTutorialOverlay">-->
+            <!--<button class=" button-clear tutorial-close-btn"  ng-click="closeTutorialOverlay()"> <i class="ion-close"></i></button>-->
+            <!--<div class="learning-content">-->
+                <!-- -->
+                          <!--<div class="col col-100 text-center" >-->
+                        <!-- -->
+                        <!--<h3>Managing Your Emails</h3>-->
+
+                        <!-- -->
+               <!--</div>-->
+                <!-- -->
+                <!-- -->
+                <!--<div class="col col-100 tutorial-save-block text-center" > Swipe right to save messages-->
+                    <!--&nbsp;<i class="icon ion-star" ></i> <i  class="icon ion-arrow-right-c"></i>-->
+                    <!--<br>-->
+                    <!--<img class="tutorial-img" src="img/newsletter/tutorial-save-detail-example.png"/>-->
+                <!--</div>-->
+                <!--<div class="col col-100 tutorial-delete-block text-center"> <i  class="icon ion-arrow-left-c"></i> <i  class="icon ion-trash-b"></i>&nbsp;Swipe left to delete them-->
+                    <!--<br>-->
+                    <!--<img class="tutorial-img" src="img/newsletter/tutorial-delete-detail-example.png"/>-->
+                <!--</div>-->
+                <!--<div class="col col-100 text-center">-->
+                  <!-- -->
+                    <!--<button ng-click="closeTutorialOverlay()" class="button button-clear" style="font-size:18px; color:white;">Okay, Got It!</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div ng-repeat="slide in emailSlide" iframe-Loaded>
+        <div class="list inbox-detail-list">
+            <div class="item row">
+
+                <div class="detail-col-img">
+                    <div class="cat-logo-block">
+                        <div class="cat-logo-cutoff">
+                            <img ng-src="{{email.imagePath}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col detail-col-info">
+                    <h2 class="detail-title-text">{{email.fromEmail|trimSubject}}</h2>
+
+                    <p class="detail-subject-text">{{email.subject}}</p>
+                    <p class="detail-date-text">{{email.createdDate| timeAgo}}</p>
+                </div>
+
+            </div>
+        </div>
+            <ion-scroll  id="emailScroll" zooming="true" direction="xy"   min-zoom="initZoom" class="emailContentBox" delegate-handle="detailScroller">
+                <div  detect-gestures id="emailBody" class="emailContentBody"  ></div>
+            </ion-scroll>
+
+            </div>
+
+        <!--<div ng-repeat="slide in emailSlide" iframe-Loaded on-drag-left="animateSlide(2)" on-drag-right="animateSlide(1)" on-release="animateSlide(0)">-->
+
+        <!--<ion-slide-box      on-slide-changed="onSlide($index)"    show-pager="false" active-slide="1"  delegate-handle="detail-slide">-->
+            <!--<ion-slide class="detail-slide-first">-->
+                <!--<div   ng-if="slide.prevEmail===null" class="row">-->
+                    <!--<div class="col text-center">-->
+                        <!--<br/><br/><br/>-->
+                        <!--<img class="default-inbox-img" ng-src='img/newsletter/default_not_first.png'>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+                <!--<div class="list inbox-detail-list"  ng-if="slide.prevEmail!=null" >-->
+                    <!--<div class="item row">-->
+
+                        <!--<div class="detail-col-img">-->
+                            <!--<div class="cat-logo-block">-->
+                                <!--<div class="cat-logo-cutoff">-->
+                                    <!--<img ng-src="{{slide.prevEmail.imagePath}}">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="col detail-col-info">-->
+                            <!--<h2 class="detail-title-text">{{slide.prevEmail.fromEmail|trimSubject}}</h2>-->
+                            <!--<p class="detail-subject-text">{{slide.prevEmail.subject}}</p>-->
+                            <!--<p class="detail-date-text">{{slide.prevEmail.createdDate| timeAgo}}</p>-->
+                        <!--</div>-->
+
+                        <!--&lt;!&ndash;<div class="detail-col-options col col-10  text-center">&ndash;&gt;-->
+
+                            <!--&lt;!&ndash;<button  class="button button-icon icon ion-android-more-vertical" ></button>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>&lt;!&ndash;row end- &ndash;&gt;-->
+                <!--</div>&lt;!&ndash;list card end- &ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="iframe-block-wrapper" ng-show="slide.prevEmail!=null">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item-body wrap" >&ndash;&gt;-->
+                        <!--&lt;!&ndash;<iframe id="prev_email_iframe"  allowtransparency="true"></iframe>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--<ion-scroll zooming="true" class="emailContentBox" delegate-handle="detailScrollerPrev">-->
+                    <!--<div  id="prevEmail"  class="emailContentBody" ></div>-->
+                <!--</ion-scroll>-->
+
+
+
+            <!--</ion-slide>&lt;!&ndash;first slide ends &ndash;&gt;-->
+            <!--<ion-slide class="detail-slide-second" >-->
+
+                <!--<div class="list inbox-detail-list">-->
+                    <!--<div class="item row">-->
+
+                        <!--<div class="detail-col-img">-->
+                            <!--<div class="cat-logo-block">-->
+                                <!--<div class="cat-logo-cutoff">-->
+                                    <!--<img ng-src="{{slide.email.imagePath}}">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col detail-col-info">-->
+                            <!--<h2 class="detail-title-text">{{slide.email.fromEmail|trimSubject}}</h2>-->
+                            <!--<p class="detail-subject-text">{{slide.email.subject}}</p>-->
+                            <!--<p class="detail-date-text">{{slide.email.createdDate| timeAgo}}</p>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div  ng-bind-html="slideAnimationMessage"></div>-->
+                <!--&lt;!&ndash;<div class="iframe-block-wrapper" >&ndash;&gt;-->
+
+
+
+                                     <!--&lt;!&ndash;<ion-scroll zooming="true" direction="xy"   class="emailContentBox" delegate-handle="detailScroller">&ndash;&gt;-->
+                                              <!--&lt;!&ndash;<div id="emailBody" class="emailContentBody" ng-bind-html="slide.email.emailBody|unsafeHtml"></div>&ndash;&gt;-->
+
+                                     <!--&lt;!&ndash;</ion-scroll>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<ion-scroll zooming="true" direction="xy" style="width: 500px; height: 500px">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div style="width: 5000px; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ion-scroll>&ndash;&gt;-->
+
+                <!--<ion-scroll  id="emailScroll" zooming="true" direction="xy"  class="emailContentBox" delegate-handle="detailScroller">-->
+                        <!--<div  detect-gestures id="emailBody" class="emailContentBody"  ></div>-->
+                <!--</ion-scroll>-->
+
+            <!--</ion-slide>&lt;!&ndash;second slide ends &ndash;&gt;-->
+            <!--<ion-slide class="detail-slide-third">-->
+
+
+                <!--<div   ng-if="slide.prevEmail===null" class="row">-->
+                    <!--<div class="col text-center">-->
+                        <!--<br/><br/><br/>-->
+                        <!--<img class="default-inbox-img" ng-src='img/newsletter/default_not_first.png'>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+                <!--<div class="list inbox-detail-list"  ng-if="slide.prevEmail!=null" >-->
+                    <!--<div class="item row">-->
+
+                        <!--<div class="detail-col-img">-->
+                            <!--<div class="cat-logo-block">-->
+                                <!--<div class="cat-logo-cutoff">-->
+                                    <!--<img ng-src="{{slide.prevEmail.imagePath}}">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="col detail-col-info">-->
+                            <!--<h2 class="detail-title-text">{{slide.prevEmail.fromEmail|trimSubject}}</h2>-->
+                            <!--<p class="detail-subject-text">{{slide.prevEmail.subject}}</p>-->
+                            <!--<p class="detail-date-text">{{slide.prevEmail.createdDate| timeAgo}}</p>-->
+                        <!--</div>-->
+
+                        <!--&lt;!&ndash;<div class="detail-col-options col col-10  text-center">&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<button  class="button button-icon icon ion-android-more-vertical" ></button>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>&lt;!&ndash;row end- &ndash;&gt;-->
+                <!--</div>&lt;!&ndash;list card end- &ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="iframe-block-wrapper" ng-show="slide.prevEmail!=null">&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<iframe ng-src="{{prevFrameUrl}}" class="iframe-email-content" width="100%" height="100%"></iframe>&ndash;&gt;&ndash;&gt;-->
+                   <!--&lt;!&ndash;&lt;!&ndash;<div class="item-body wrap" ng-bind-html="slide.prevEmail.emailBody|unsafeHtml"></div>&ndash;&gt;&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<div class="item-body wrap" >&ndash;&gt;-->
+                        <!--&lt;!&ndash;<iframe id="prev_email_iframe2" allowtransparency="true"></iframe>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div >&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--<ion-scroll zooming="true" class="emailContentBox"  delegate-handle="detailScrollerPrev1">-->
+                    <!--<div  id="prevEmail1" class="emailContentBody"  ></div>-->
+                <!--</ion-scroll>-->
+
+            <!--</ion-slide>&lt;!&ndash;third slide ends &ndash;&gt;-->
+        <!--</ion-slide-box>-->
+
+        <!--</div>-->
+        <!--</div>-->
+
+
+    </ion-content>
+    <ion-footer-bar ng-if="showNotInterestedMessage || showUndo ||showEmailDSMAction">
+    <div class="bar bar-footer  bar-assertive">
+        <div class="button-bar" ng-if="showEmailDSMAction">
+            <button  class=" button button-icon ion-star pull-right view-detail-button " ng-click="emailDSMAction(email.emailid,2,1)" ng-if="email.statusName==='Inbox'">Save</button>
+            <button  class=" button button-icon ion-star pull-right view-detail-button " ng-click="emailDSMAction(email.emailid,1,1)" ng-if="email.statusName==='Save'">Save</button>
+            <button  class=" button button-icon ion-trash-b view-detail-button" ng-click="emailDSMAction(email.emailid,3,1)" ng-if="email.statusName==='Inbox' ||email.statusName==='Save' ">Delete</button>
+        </div>
+    </div>
+        <div class="bar bar-subfooter  bar-dark cssSlideUp" ng-if="showNotInterestedMessage">
+            <div class="row">
+               <div class="col text-center">
+                 You have successfully unsubscribed from this newsletter.
+               </div>
+
+            </div>
+        </div>
+        <div class="bar bar-footer bar-assertive" ng-if="showUndo">
+            <div class="row">
+                <div class="col col-66 text-left">
+                    {{undoMessage}}
+                </div>
+                <div class="col text-right">
+                    <button  class="button icon ion-ios-undo footer-undo-btn" ng-click="undoPreviousAction()"> Undo</button>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+
+</ion-modal-view>

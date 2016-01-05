@@ -1,0 +1,104 @@
+<ion-view  view-title="Settings" ng-controller="settingsController as vm">
+    <ion-content>
+
+        <div>
+            <div class="row" style="background:beige;">
+                <div class="col text-center ">
+
+                    <p style="margin-bottom:0px;">Change My Password </p>
+                </div>
+            </div>
+        <form name="vm.signupForm" ng-submit="vm.signupFormSubmit(vm.signupForm.$invalid)" novalidate>
+
+            <div class="row item-stacked-label " style="border-bottom:1px solid #ddd;">
+                <div class="col col-80">
+            <!--PASSWORD-->
+            <label class="item-stacked">
+                <span class="input-label">Password</span>
+                
+                
+                <input ng-focus="vm.clearPasswordError()" id="password" name="password" placeholder="Please enter your password" type="password"  ng-model="vm.signupData.password" required ng-if="!vm.showPassword">
+                <input   ng-focus="vm.clearPasswordError()" name="password" placeholder="Please enter your password" type="text"  ng-model="vm.signupData.password" required  ng-if="vm.showPassword">
+               
+                
+                
+                
+                
+            </label>
+            
+            </div>
+            
+             <div class="col col-20 col-bottom ">
+            
+               <label class=" toggle item-toggle toggle-positive eye-toggle ">
+ 
+                   
+                 <input type="checkbox"  ng-model="vm.showPassword">
+                 <div class="track">
+                     <div class="handle"><i class=" icon ion-eye custom-icon-toggle"></i></div>
+                 </div>
+                 
+                 
+                 
+             </label>
+                </div>
+            </div>
+            
+
+            
+<!--             <ion-checkbox ng-model="vm.showPassword">Show password</ion-checkbox>-->
+
+
+
+
+
+            <div   ng-messages="vm.signupForm.password.$error" ng-show="vm.signupForm.password.$touched ||vm.submitted ">
+            <div  class="form-error"ng-message="required">
+                Please enter the password
+            </div>
+
+            <div class="form-error"  ng-message="pattern">
+                Please enter a valid password
+            </div>
+            <div class="form-error"  ng-message="minlength">
+                Password must be minimum 6 characters
+            </div>
+            <div class="form-error"  ng-message="maxlength">
+                Password cannot be more than 20 characters
+            </div>
+        </div>
+
+
+            <label class="row" ng-if="!vm.showloading">
+                   <div class="col text-center ">
+                <button class="button button-block button-positive"  type="submit" >Update Password</button>
+                      </div>
+                  <div class="row" ng-if="vm.showloading">
+                <div class="col text-center">
+                    <ion-spinner icon="dots"  class="spinner-positive"></ion-spinner>
+                </div>
+            </div>
+            </label>
+            <div class="row" ng-if="vm.showloading">
+                <div class="col text-center">
+                    <ion-spinner icon="dots"  class="spinner-positive"></ion-spinner>
+                </div>
+            </div>
+        </form>
+            
+
+
+</div><!--password div ends -->
+
+    
+      
+            <div class="row" style="margin-top:-25px;" >
+                <div class="col text-center ">
+
+                    <button class="ion-log-out button button-block button-positive"  ng-click="vm.doLogout()"> Logout</button>
+                </div>
+            </div>
+
+      
+    </ion-content>
+</ion-view>

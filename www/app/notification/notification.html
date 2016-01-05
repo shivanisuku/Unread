@@ -1,0 +1,14 @@
+<ion-view view-title="notification" ng-controller="notificationController">
+    <ion-content>
+        <button class="button button-block button-dark" ng-click="identifyUser()">
+            Identify a user
+        </button>
+
+        <button class="button button-block button-positive" ng-if="identified" ng-click="pushRegister()">
+            Register for Push
+        </button>
+
+    </ion-content>
+</ion-view>
+
+

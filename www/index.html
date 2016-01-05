@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+
+  <!-- compiled css output -->
+
+  <link href="css/ionic.app.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/angular-animate/angular-animate.js"></script>
+
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+  <script src="cordova.js"></script>
+  <script src="lib/angular-messages.js"></script>
+  <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
+  <script src="lib/angular-websocket/angular-websocket.js"></script>
+
+  <script src="lib/ionic-service-core/ionic-core.js"></script>
+  <script src="lib/ionic-service-push/ionic-push.js"></script>
+  <script src="plugins/io.io.litehelpers.cordova.sqlite/www/SQLitePlugin.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!--<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+  <!--<script src="lib/Jquery-touchswipe/jquery.touchSwipe.js"></script>-->
+
+
+  <!--<script src="dist/dist_js/app/controllers.js"></script>-->
+  <!-- APP JS AND ENV VARIABLES -->
+  <script src="dist/dist_js/app/env_variables.js"></script>
+  <script src="dist/dist_js/app/app.js"></script>
+  <!--SERVICES -->
+
+  <script src="dist/dist_js/app/services/authService.js"></script>
+  <script src="dist/dist_js/app/services/dataService.js"></script>
+  <script src="dist/dist_js/app/services/sqlLiteService.js"></script>
+  <script src="dist/dist_js/app/services/exceptionHandler.js"></script>
+
+  <!--CONTROLLERS -->
+  <script src="dist/dist_js/app/menu/menuController.js"></script>
+  <script src="dist/dist_js/app/login/loginController.js"></script>
+  <script src="dist/dist_js/app/inbox/inboxController.js"></script>
+  <script src="dist/dist_js/app/signup/signupController.js"></script>
+  <script src="dist/dist_js/app/subscription/subscriptionController.js"></script>
+  <script src="dist/dist_js/app/subscription/subscription-categoryController.js"></script>
+  <script src="dist/dist_js/app/profile/profileController.js"></script>
+  <script src="dist/dist_js/app/home/homeController.js"></script>
+  <script src="dist/dist_js/app/saved/savedController.js"></script>
+  <script src="dist/dist_js/app/trending/trendingController.js"></script>
+  <script src="dist/dist_js/app/detail/detailController.js"></script>
+  <script src="dist/dist_js/app/notification/notificationController.js"></script>
+  <script src="dist/dist_js/app/feedback/feedbackController.js"></script>
+  <script src="dist/dist_js/app/forgotPassword/forgotPasswordController.js"></script>
+  <script src="dist/dist_js/app/settings/settingsController.js"></script>
+  <script src="dist/dist_js/app/search/searchController.js"></script>
+  <script src="dist/dist_js/app/splash/splashController.js"></script>
+  <script src="dist/dist_js/app/search/searchDetailController.js"></script>
+  <!--DIRECTIVES -->
+  <script src="dist/dist_js/app/signup/passwordMatch.directive.js"></script>
+  <script src="dist/dist_js/app/signup/uniqueEmail.directive.js"></script>
+  <script src="dist/dist_js/app/search/ionSearch.js"></script>
+  <script src="dist/dist_js/app/detail/iframeLoadedDirective.js"></script>
+  <script src="dist/dist_js/app/detail/detectGesturesDirective.js"></script>
+  <!--FILTERS -->
+  <script src="dist/dist_js/app/filters/trimSubject.js"></script>
+  <script src="dist/dist_js/app/filters/timeAgo.js"></script>
+  <script src="dist/dist_js/app/filters/unsafeHtml.js"></script>
+
+</head>
+
+<body ng-app="newsletterApp" ng-cloak="">
+
+<ion-nav-view></ion-nav-view>
+<ion-footer-bar class="bar bar-footer bar-assertive" ng-if="$root.showInternetNotAvailable">
+  <div>No connection.Please check your connection.</div>
+</ion-footer-bar>
+</body>
+</html>

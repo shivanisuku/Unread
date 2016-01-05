@@ -1,0 +1,1 @@
+angular.module("newsletterApp").filter("trimSubject",function(){return function(n){if(angular.isDefined(n)){var e=n.substring(0,n.lastIndexOf("<"));return(angular.isUndefined(e)||e.length<1)&&(e=n),angular.isUndefined(e)?n:e}return n}});

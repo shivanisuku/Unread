@@ -1,0 +1,22 @@
+{
+  "name": "UnReadApp",
+  "app_id": "f11dbfd0",
+  "gulpStartupTasks": [
+    "sass",
+
+        "ng_annotate",
+
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
+}
